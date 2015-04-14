@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>446</width>
+    <height>282</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,18 +17,21 @@
    <widget class="QPlainTextEdit" name="outputBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>50</y>
+      <x>10</x>
+      <y>30</y>
       <width>231</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="inputBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>180</y>
+      <x>10</x>
+      <y>170</y>
       <width>231</width>
       <height>20</height>
      </rect>
@@ -37,9 +40,9 @@
    <widget class="QLabel" name="statusLabel">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>240</y>
-      <width>451</width>
+      <x>10</x>
+      <y>200</y>
+      <width>221</width>
       <height>16</height>
      </rect>
     </property>
@@ -47,141 +50,269 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ReScanButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>50</y>
-      <width>75</width>
-      <height>23</height>
+      <x>250</x>
+      <y>10</y>
+      <width>182</width>
+      <height>218</height>
      </rect>
     </property>
-    <property name="text">
-     <string>ReScan</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Port</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ReScanButton">
+           <property name="text">
+            <string>ReScan</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="portName"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Baud Rate</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="baudBox">
+           <item>
+            <property name="text">
+             <string>600</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1200</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>2400</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>4800</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>9600</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>14400</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>19200</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>28800</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>56000</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Data bits</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="dbitBox">
+           <item>
+            <property name="text">
+             <string>5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>6</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>7</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>8</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QCheckBox" name="checkBoxCR">
+         <property name="text">
+          <string>CR</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBoxLF">
+         <property name="text">
+          <string>LF</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBoxCRLF">
+         <property name="text">
+          <string>CR + LF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="connectButton">
+           <property name="text">
+            <string>Connect</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="disconnectButton">
+           <property name="text">
+            <string>Discnonnect</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="sendButton">
+         <property name="text">
+          <string>Send</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="connectButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>160</y>
-      <width>75</width>
-      <height>23</height>
+      <x>20</x>
+      <y>0</y>
+      <width>211</width>
+      <height>25</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Connect</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Received</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearOutputButton">
+       <property name="text">
+        <string>CLEAR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>78</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="disconnectButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>160</y>
-      <width>75</width>
-      <height>23</height>
+      <x>20</x>
+      <y>140</y>
+      <width>207</width>
+      <height>25</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Discnonnect</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sendButton">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>190</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Send</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="portName">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>50</y>
-      <width>69</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="baudBox">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>80</y>
-      <width>69</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>9600</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>600</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QComboBox" name="dbitBox">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>110</y>
-      <width>69</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>8</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxCR">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>90</y>
-      <width>70</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CR</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxLF">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>110</y>
-      <width>70</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>LF</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxCRLF">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>130</y>
-      <width>70</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CR + LF</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Transmit</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearInputButton">
+       <property name="text">
+        <string>CLEAR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>78</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -189,24 +320,181 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>446</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMain">
+    <property name="title">
+     <string>Main</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuMain"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
+    <enum>BottomToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="qtterm_v2.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>inputBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>sendButton</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>23</x>
+     <y>210</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxCR</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBoxLF</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxCR</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBoxCRLF</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxLF</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBoxCR</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxLF</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBoxCRLF</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>195</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxCRLF</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBoxCR</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>322</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxCRLF</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBoxLF</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>338</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>168</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearInputButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>inputBox</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>87</x>
+     <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearOutputButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>outputBox</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>88</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

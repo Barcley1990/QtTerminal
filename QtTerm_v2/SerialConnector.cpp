@@ -9,14 +9,13 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	m_LF = false;
 	m_CRLF = false;
 	m_port = "";
+	m_baudrate = 9600;
 
 	connect(ui.ReScanButton, SIGNAL(clicked()), this, SLOT(scanPortNames()));		// Scan Portnames (scan Button)
 	connect(ui.portName, SIGNAL(activated(int)), this, SLOT(choosePort(int)));		// choose Port (dropdown)
 	connect(ui.baudBox, SIGNAL(activated(int)), this, SLOT(chooseBaud(int)));		// choose Baud (dropdown)
 	connect(ui.dbitBox, SIGNAL(activated(int)), this, SLOT(chooseDataBits(int)));	// choose DataBits (dropdown)
 	connect(ui.connectButton, SIGNAL(clicked()), this, SLOT(configure()));			// connect to Port (Pushbutton)
-
-	connect(ui.inputBox, SIGNAL(returnPressed()), ui.sendButton, SLOT(clicked()));	// return = click on SendButton
 
 	//connect(ui.connectButton, SIGNAL(clicked()), ui.DisconnectButton, SLOT(setEnabled()));	
 	//connect(ui.connectButton, SIGNAL(clicked()), ui.sendButton, SLOT(setEnabled()));
@@ -29,8 +28,6 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));					// CR Checkbox
 	connect(ui.checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));				// CR Checkbox
 	
-
-	//connect(ui.actionQuit, SIGNAL(triggered()), this, SLOT(disconnect()));			// quit
 
 	// default values
 	scanPortNames();
@@ -130,7 +127,7 @@ void SerialConnector::configure()
 	m_serial->setPortName(m_port);
 
 	if (m_serial->open(QIODevice::ReadWrite))
-	{//m_baudrate, QSerialPort::AllDirections
+	{
 		m_serial->setBaudRate(m_baudrate, QSerialPort::AllDirections);
 		m_serial->setDataBits(QSerialPort::Data8);
 		m_serial->setParity(QSerialPort::NoParity);
