@@ -45,11 +45,16 @@ public slots :
 
 	void WriteToSerial();
 	void ReadFromSerial();
-
+	void WriteToSlider(QString);
+	void SendSlider(int);
 
 private:
 	Ui::QtTerm_v2Class ui;
 	QSerialPort *m_serial;
+
+	QString m_dataToBeWritten;
+	QString m_ledData;
+	QString m_valueData;
 
 };
 
