@@ -17,6 +17,7 @@ class SerialConnector : public QMainWindow
 public:
 	SerialConnector(QWidget *parent = 0);
 	~SerialConnector();
+	void WriteToSerial(QString);
 
 	QString m_port;
 	QString m_baud;
@@ -38,12 +39,13 @@ public slots :
 	void chooseDataBits(int);
 	void configure();
 	void disconnect();
+	void getDataFromInputBox();
 
 	void CR_Checkbox(int);
 	void LF_Checkbox(int);
 	void CRLF_Checkbox(int);
 
-	void WriteToSerial();
+	
 	void ReadFromSerial();
 	void WriteToSlider(QString);
 	void SendSlider(int);
@@ -52,7 +54,6 @@ private:
 	Ui::QtTerm_v2Class ui;
 	QSerialPort *m_serial;
 
-	QString m_dataToBeWritten;
 	QString m_ledData;
 	QString m_valueData;
 

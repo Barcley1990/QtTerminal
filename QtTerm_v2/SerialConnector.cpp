@@ -24,7 +24,7 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 
 	connect(ui.disconnectButton, SIGNAL(clicked()), this, SLOT(disconnect()));		// disconnect from Port (Pushbutton)
 	connect(m_serial, SIGNAL(readyRead()), this, SLOT(ReadFromSerial()));			// Read from Serial
-	connect(ui.sendButton, SIGNAL(clicked()), this, SLOT(WriteToSerial()));			// Write to Serial
+	connect(ui.sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));				// Write to Serial
 
 	connect(ui.ledSlider, SIGNAL(textEdited(QString)), this, SLOT(WriteToSlider(QString)));
 	connect(ui.BrightnessSlider, SIGNAL(valueChanged(int)), this, SLOT(SendSlider(int)));
@@ -34,7 +34,6 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));					// CR Checkbox
 	connect(ui.checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));				// CR Checkbox
 }
-
 
 SerialConnector::~SerialConnector()
 {
@@ -147,17 +146,23 @@ void SerialConnector::disconnect()
 	ui.statusLabel->setText("Disconnected");
 }
 
-void SerialConnector::WriteToSerial()
+
+// Slot is called if send button was clicked.
+void SerialConnector::getDataFromInputBox()
 {
 	if (m_serial && !m_serial->isOpen())
-		return;
+	return;
 
-	m_dataToBeWritten = ui.inputBox->displayText();
-	qDebug() << m_dataToBeWritten << endl;
-	if (!m_dataToBeWritten.isEmpty())
+	WriteToSerial(ui.inputBox->displayText());
+}
+// Memberfunction to write to Serial.
+void SerialConnector::WriteToSerial(QString data)
+{
+	qDebug() << data << endl;
+	if (!data.isEmpty())
 	{
 		QByteArray qb;
-		qb.append(m_dataToBeWritten);
+		qb.append(data);
 		// check if EOL flag is set.
 				if (m_CR)
 				{
@@ -185,10 +190,9 @@ void SerialConnector::WriteToSerial()
 	else
 		qDebug() << "Empty String" << endl;
 }
-
+// Slot to read from serial
 void SerialConnector::ReadFromSerial()
 {
-
 	if (!m_serial)
 		return;
 
@@ -207,13 +211,13 @@ void SerialConnector::ReadFromSerial()
 	}
 
 }
-
+// Slot is called if textfield was changed.
 void SerialConnector::WriteToSlider(QString arg)
 {
 	m_ledData = arg;
 	qDebug() << m_ledData << endl;
 }
-
+// Slot is called if slidervalue was changed.
 void SerialConnector::SendSlider(int arg)
 {
 	m_valueData = QString::number(arg);
@@ -225,42 +229,12 @@ void SerialConnector::SendSlider(int arg)
 		m_valueData.insert(0, QString("0"));
 	}
 	
-	
 	QString led = "LED";
 	QString value = "VALUE";
 	QString newData = led.append(m_ledData).append(value).append(m_valueData);
 	qDebug() << newData << endl;
-	
-	
+
 	if (m_serial && !m_serial->isOpen())
 		return;
-	if (!newData.isEmpty())
-	{
-		QByteArray qb;
-		qb.append(newData);
-		// check if EOL flag is set.
-		if (m_CR)
-		{
-			qb.append('\r');
-		}
-		if (m_LF)
-		{
-			qb.append('\n');
-		}
-		if (m_CRLF)
-		{
-			qb.append('\r\n');
-		}
-
-		int complete_size = qb.size();
-		int send = m_serial->write(qb);
-		while (send < complete_size)
-		{
-			m_serial->waitForBytesWritten(1);
-			qb.remove(0, send);
-			send += m_serial->write(qb);
-			qDebug() << "Retransmitted: " << send;
-		}
-	}
-	
+	WriteToSerial(newData);
 }

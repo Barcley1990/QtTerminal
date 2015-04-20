@@ -27,7 +27,6 @@
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -73,18 +72,87 @@ public:
     QLabel *label_2;
     QPushButton *clearInputButton;
     QSpacerItem *horizontalSpacer_2;
-    QSlider *BrightnessSlider;
     QLineEdit *ledSlider;
+    QWidget *layoutWidget3;
+    QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *label_6;
+    QSpacerItem *horizontalSpacer_4;
+    QSlider *BrightnessSlider;
+    QWidget *layoutWidget4;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *label_7;
+    QSpacerItem *horizontalSpacer_3;
     QMenuBar *menuBar;
     QMenu *menuMain;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *QtTerm_v2Class)
     {
         if (QtTerm_v2Class->objectName().isEmpty())
             QtTerm_v2Class->setObjectName(QStringLiteral("QtTerm_v2Class"));
-        QtTerm_v2Class->resize(446, 316);
+        QtTerm_v2Class->setWindowModality(Qt::NonModal);
+        QtTerm_v2Class->setEnabled(true);
+        QtTerm_v2Class->resize(460, 320);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(QtTerm_v2Class->sizePolicy().hasHeightForWidth());
+        QtTerm_v2Class->setSizePolicy(sizePolicy);
+        QtTerm_v2Class->setMinimumSize(QSize(460, 320));
+        QtTerm_v2Class->setMaximumSize(QSize(460, 320));
+        QFont font;
+        font.setBold(false);
+        font.setItalic(false);
+        font.setWeight(50);
+        QtTerm_v2Class->setFont(font);
+        QtTerm_v2Class->setWindowOpacity(1);
+        QtTerm_v2Class->setStyleSheet(QLatin1String("QWidget{\n"
+"	background: #323232;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	background: transparent;\n"
+"	color: #dcdcdc;\n"
+"	border: 2px solid #dcdcdc;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	background: rgba(200,200,200,50);\n"
+"}\n"
+"QCheckBox{\n"
+"	color: #dcdcdc;\n"
+"}\n"
+"QLabel{\n"
+"	color: #dcdcdc;\n"
+"}\n"
+"QComboBox{\n"
+"\n"
+"	color: #white;\n"
+"	background: white;\n"
+" 	border: 1px solid gray;\n"
+"    border-radius: 3px;\n"
+"text-color:white;\n"
+"}\n"
+"QComboBox QListView\n"
+"{\n"
+"    border-style: none;\n"
+"    background-color: grey\n"
+"}\n"
+"\n"
+"\n"
+"QPlainTextEdit{\n"
+"	background: white;\n"
+"}\n"
+"QTextEdit{\n"
+"	background: white;\n"
+"}\n"
+"QLineEdit{\n"
+"	background: white;\n"
+"}"));
+        QtTerm_v2Class->setTabShape(QTabWidget::Rounded);
+        QtTerm_v2Class->setDockOptions(QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks);
         actionQuit = new QAction(QtTerm_v2Class);
         actionQuit->setObjectName(QStringLiteral("actionQuit"));
         centralWidget = new QWidget(QtTerm_v2Class);
@@ -98,10 +166,10 @@ public:
         inputBox->setGeometry(QRect(10, 170, 231, 20));
         statusLabel = new QLabel(centralWidget);
         statusLabel->setObjectName(QStringLiteral("statusLabel"));
-        statusLabel->setGeometry(QRect(10, 230, 221, 16));
+        statusLabel->setGeometry(QRect(10, 240, 221, 16));
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(250, 10, 182, 243));
+        layoutWidget->setGeometry(QRect(250, 10, 186, 243));
         verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -258,26 +326,65 @@ public:
 
         horizontalLayout_6->addItem(horizontalSpacer_2);
 
-        BrightnessSlider = new QSlider(centralWidget);
+        ledSlider = new QLineEdit(centralWidget);
+        ledSlider->setObjectName(QStringLiteral("ledSlider"));
+        ledSlider->setGeometry(QRect(11, 219, 71, 20));
+        layoutWidget3 = new QWidget(centralWidget);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(100, 190, 128, 49));
+        verticalLayout_5 = new QVBoxLayout(layoutWidget3);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        label_6 = new QLabel(layoutWidget3);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        horizontalLayout_7->addWidget(label_6);
+
+        horizontalSpacer_4 = new QSpacerItem(68, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_4);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_7);
+
+        BrightnessSlider = new QSlider(layoutWidget3);
         BrightnessSlider->setObjectName(QStringLiteral("BrightnessSlider"));
-        BrightnessSlider->setGeometry(QRect(103, 201, 131, 20));
         BrightnessSlider->setMaximum(4065);
         BrightnessSlider->setSingleStep(10);
         BrightnessSlider->setPageStep(100);
         BrightnessSlider->setOrientation(Qt::Horizontal);
-        ledSlider = new QLineEdit(centralWidget);
-        ledSlider->setObjectName(QStringLiteral("ledSlider"));
-        ledSlider->setGeometry(QRect(11, 201, 81, 20));
+
+        verticalLayout_5->addWidget(BrightnessSlider);
+
+        layoutWidget4 = new QWidget(centralWidget);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(11, 191, 74, 22));
+        horizontalLayout_8 = new QHBoxLayout(layoutWidget4);
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(layoutWidget4);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        horizontalLayout_8->addWidget(label_7);
+
+        horizontalSpacer_3 = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_8->addItem(horizontalSpacer_3);
+
         QtTerm_v2Class->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtTerm_v2Class);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 446, 21));
+        menuBar->setGeometry(QRect(0, 0, 460, 21));
         menuMain = new QMenu(menuBar);
         menuMain->setObjectName(QStringLiteral("menuMain"));
         QtTerm_v2Class->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(QtTerm_v2Class);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        QtTerm_v2Class->addToolBar(Qt::BottomToolBarArea, mainToolBar);
         statusBar = new QStatusBar(QtTerm_v2Class);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         QtTerm_v2Class->setStatusBar(statusBar);
@@ -337,6 +444,9 @@ public:
         clearOutputButton->setText(QApplication::translate("QtTerm_v2Class", "CLEAR", 0));
         label_2->setText(QApplication::translate("QtTerm_v2Class", "Transmit", 0));
         clearInputButton->setText(QApplication::translate("QtTerm_v2Class", "CLEAR", 0));
+        ledSlider->setText(QString());
+        label_6->setText(QApplication::translate("QtTerm_v2Class", "Brightness", 0));
+        label_7->setText(QApplication::translate("QtTerm_v2Class", "LED", 0));
         menuMain->setTitle(QApplication::translate("QtTerm_v2Class", "Main", 0));
     } // retranslateUi
 

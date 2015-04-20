@@ -2,16 +2,101 @@
 <ui version="4.0">
  <class>QtTerm_v2Class</class>
  <widget class="QMainWindow" name="QtTerm_v2Class">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>446</width>
-    <height>316</height>
+    <width>460</width>
+    <height>320</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>460</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>460</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
   </property>
   <property name="windowTitle">
    <string>QtTerm_v2</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background: #323232;
+}
+
+QPushButton{
+	background: transparent;
+	color: #dcdcdc;
+	border: 2px solid #dcdcdc;
+	border-radius: 5px;
+}
+
+QPushButton:hover{
+	background: rgba(200,200,200,50);
+}
+QCheckBox{
+	color: #dcdcdc;
+}
+QLabel{
+	color: #dcdcdc;
+}
+QComboBox{
+
+	color: #white;
+	background: white;
+ 	border: 1px solid gray;
+    border-radius: 3px;
+}
+QComboBox QListView
+{
+    border-style: none;
+    background-color: grey
+}
+
+
+QPlainTextEdit{
+	background: white;
+}
+QTextEdit{
+	background: white;
+}
+QLineEdit{
+	background: white;
+}</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPlainTextEdit" name="outputBox">
@@ -41,7 +126,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>230</y>
+      <y>240</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -55,7 +140,7 @@
      <rect>
       <x>250</x>
       <y>10</y>
-      <width>182</width>
+      <width>186</width>
       <height>243</height>
      </rect>
     </property>
@@ -314,37 +399,102 @@
      </item>
     </layout>
    </widget>
-   <widget class="QSlider" name="BrightnessSlider">
-    <property name="geometry">
-     <rect>
-      <x>103</x>
-      <y>201</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>4065</number>
-    </property>
-    <property name="singleStep">
-     <number>10</number>
-    </property>
-    <property name="pageStep">
-     <number>100</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="ledSlider">
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>201</y>
-      <width>81</width>
+      <y>219</y>
+      <width>71</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>190</y>
+      <width>128</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Brightness</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>68</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QSlider" name="BrightnessSlider">
+       <property name="maximum">
+        <number>4065</number>
+       </property>
+       <property name="singleStep">
+        <number>10</number>
+       </property>
+       <property name="pageStep">
+        <number>100</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>191</y>
+      <width>74</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>LED</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>48</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -352,7 +502,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>446</width>
+     <width>460</width>
      <height>21</height>
     </rect>
    </property>
@@ -363,14 +513,6 @@
     <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuMain"/>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>BottomToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionQuit">
