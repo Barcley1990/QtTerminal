@@ -15,6 +15,11 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	m_CRLF = false;
 	m_port = "";
 	m_baudrate = 9600;
+	m_slider1_value = "0000";
+	m_slider2_value = "0000";
+	m_slider3_value = "0000";
+	m_slider4_value = "0000";
+
 
 	connect(ui.ReScanButton, SIGNAL(clicked()), this, SLOT(scanPortNames()));		// Scan Portnames (scan Button)
 	connect(ui.portName, SIGNAL(activated(int)), this, SLOT(choosePort(int)));		// choose Port (dropdown)
@@ -24,15 +29,23 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 
 	connect(ui.disconnectButton, SIGNAL(clicked()), this, SLOT(disconnect()));		// disconnect from Port (Pushbutton)
 	connect(m_serial, SIGNAL(readyRead()), this, SLOT(ReadFromSerial()));			// Read from Serial
-	connect(ui.sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));				// Write to Serial
+	connect(ui.sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));	// Write to Serial
 
 	connect(ui.ledSlider, SIGNAL(textEdited(QString)), this, SLOT(WriteToSlider(QString)));
 	connect(ui.BrightnessSlider, SIGNAL(valueChanged(int)), this, SLOT(SendSlider(int)));
-
 	
-	connect(ui.checkBoxCR, SIGNAL(stateChanged(int)), this, SLOT(CR_Checkbox(int)));					// CR Checkbox
-	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));					// CR Checkbox
-	connect(ui.checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));				// CR Checkbox
+	connect(ui.checkBoxCR, SIGNAL(stateChanged(int)), this, SLOT(CR_Checkbox(int)));		// CR Checkbox
+	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));		// CR Checkbox
+	connect(ui.checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));	// CR Checkbox
+	
+	connect(ui.cb_led1, SIGNAL(stateChanged(int)), this, SLOT(LED1_Checkbox(int)));
+	connect(ui.cb_led2, SIGNAL(stateChanged(int)), this, SLOT(LED2_Checkbox(int)));
+	connect(ui.cb_led3, SIGNAL(stateChanged(int)), this, SLOT(LED3_Checkbox(int)));
+	connect(ui.cb_led4, SIGNAL(stateChanged(int)), this, SLOT(LED4_Checkbox(int)));
+	connect(ui.sl_led1, SIGNAL(valueChanged(int)), this, SLOT(LED1_Slider(int)));
+	connect(ui.sl_led2, SIGNAL(valueChanged(int)), this, SLOT(LED2_Slider(int)));
+	connect(ui.sl_led3, SIGNAL(valueChanged(int)), this, SLOT(LED3_Slider(int)));
+	connect(ui.sl_led4, SIGNAL(valueChanged(int)), this, SLOT(LED4_Slider(int)));
 }
 
 SerialConnector::~SerialConnector()
@@ -57,13 +70,11 @@ void SerialConnector::scanPortNames()
 	}
 	ui.portName->addItems(stringlist);
 }
-
 void SerialConnector::choosePort(int arg)
 {
 	m_port = ui.portName->itemText(arg);
 	qDebug() << m_port;
 }
-
 void SerialConnector::chooseBaud(int arg)
 {
 	m_baud = ui.baudBox->itemText(arg);
@@ -71,7 +82,6 @@ void SerialConnector::chooseBaud(int arg)
 	m_baudrate = m_baud.toInt(&ok, 10);
 	qDebug() << m_baudrate;
 }
-
 void SerialConnector::chooseDataBits(int arg)
 {
 	m_dbits = ui.dbitBox->itemText(arg);
@@ -106,6 +116,170 @@ void SerialConnector::CRLF_Checkbox(int arg)
 		m_CRLF = false;
 }
 
+void SerialConnector::LED1_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led1 = arg;
+	if (led1 == 2) // if checked
+	{
+		m_led1 = true;
+		QString newData = led_str.append("01").append(value_str).append(m_slider1_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led1 = false;
+		WriteToSerial("LED01VALUE0000");
+	}
+		
+}
+void SerialConnector::LED2_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led2 = arg;
+	if (led2 == 2) // if checked
+	{
+		m_led2 = true;
+		
+		QString newData = led_str.append("02").append(value_str).append(m_slider2_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led2 = false;
+		WriteToSerial("LED02VALUE0000");
+	}
+}
+void SerialConnector::LED3_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led3 = arg;
+	if (led3 == 2) // if checked
+	{
+		m_led3 = true;
+
+		QString newData = led_str.append("03").append(value_str).append(m_slider3_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led3 = false;
+		WriteToSerial("LED03VALUE0000");
+	}
+}
+void SerialConnector::LED4_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led4 = arg;
+	if (led4 == 2) // if checked
+	{
+		m_led4 = true;
+
+		QString newData = led_str.append("04").append(value_str).append(m_slider4_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led4 = false;
+		WriteToSerial("LED04VALUE0000");
+	}
+}
+
+void SerialConnector::LED1_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider1_value = QString::number(arg);
+	while (m_slider1_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider1_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("01").append(value_str).append(m_slider1_value);
+	
+	if (m_led1)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+			
+}
+void SerialConnector::LED2_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider2_value = QString::number(arg);
+	while (m_slider2_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider2_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("02").append(value_str).append(m_slider2_value);	
+	if (m_led2)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+void SerialConnector::LED3_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider3_value = QString::number(arg);
+	while (m_slider3_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider3_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("03").append(value_str).append(m_slider3_value);
+	if (m_led3)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+void SerialConnector::LED4_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider4_value = QString::number(arg);
+	while (m_slider4_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider4_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("04").append(value_str).append(m_slider4_value);
+	if (m_led4)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+
 void SerialConnector::configure()
 {
 	if (m_serial->isOpen())
@@ -135,7 +309,6 @@ void SerialConnector::configure()
 		ui.statusLabel->setText("Connection established");
 	}
 }
-
 void SerialConnector::disconnect()
 {
 	if (m_serial->isOpen())
@@ -155,41 +328,7 @@ void SerialConnector::getDataFromInputBox()
 
 	WriteToSerial(ui.inputBox->displayText());
 }
-// Memberfunction to write to Serial.
-void SerialConnector::WriteToSerial(QString data)
-{
-	qDebug() << data << endl;
-	if (!data.isEmpty())
-	{
-		QByteArray qb;
-		qb.append(data);
-		// check if EOL flag is set.
-				if (m_CR)
-				{
-		qb.append('\r');
-				}
-		if (m_LF)
-		{
-		qb.append('\n');
-		}
-		if (m_CRLF)
-		{
-		qb.append('\r\n');
-		}
-		
-		int complete_size = qb.size();
-		int send = m_serial->write(qb);
-		while (send < complete_size)
-		{
-			m_serial->waitForBytesWritten(1);
-			qb.remove(0, send);
-			send += m_serial->write(qb);
-			qDebug() << "Retransmitted: " << send;
-		}
-	}
-	else
-		qDebug() << "Empty String" << endl;
-}
+
 // Slot to read from serial
 void SerialConnector::ReadFromSerial()
 {
@@ -211,12 +350,14 @@ void SerialConnector::ReadFromSerial()
 	}
 
 }
+
 // Slot is called if textfield was changed.
 void SerialConnector::WriteToSlider(QString arg)
 {
 	m_ledData = arg;
 	qDebug() << m_ledData << endl;
 }
+
 // Slot is called if slidervalue was changed.
 void SerialConnector::SendSlider(int arg)
 {
@@ -237,4 +378,41 @@ void SerialConnector::SendSlider(int arg)
 	if (m_serial && !m_serial->isOpen())
 		return;
 	WriteToSerial(newData);
+}
+
+// Memberfunction to write to Serial.
+void SerialConnector::WriteToSerial(QString data)
+{
+	qDebug() << data << endl;
+	if (!data.isEmpty())
+	{
+		QByteArray qb;
+		qb.append(data);
+		// check if EOL flag is set.
+		if (m_CR)
+		{
+			qb.append('\r');
+		}
+		if (m_LF)
+		{
+			qb.append('\n');
+		}
+		if (m_CRLF)
+		{
+			qb.append('\r\n');
+		}
+
+		int complete_size = qb.size();
+		int send = m_serial->write(qb);
+		QThread::msleep(1);
+		while (send < complete_size)
+		{
+			m_serial->waitForBytesWritten(1);
+			qb.remove(0, send);
+			send += m_serial->write(qb);
+			qDebug() << "Retransmitted: " << send;
+		}
+	}
+	else
+		qDebug() << "Empty String" << endl;
 }
