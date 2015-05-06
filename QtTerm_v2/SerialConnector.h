@@ -47,6 +47,9 @@ private slots :
 	void LED3_Slider(int);
 	void LED4_Slider(int);
 
+	void poly_Slider(int);
+	void non_poly_Slider(int);
+
 
 	void ReadFromSerial();
 	void WriteToSlider(QString);
@@ -66,6 +69,9 @@ private:
 	QString m_slider2_value;
 	QString m_slider3_value;
 	QString m_slider4_value;
+
+	QString m_poly_Slider_value;
+	QString m_non_poly_Slider_value;
 
 	Ui::QtTerm_v2Class ui;
 	QSerialPort *m_serial;

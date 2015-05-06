@@ -46,6 +46,11 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.sl_led2, SIGNAL(valueChanged(int)), this, SLOT(LED2_Slider(int)));
 	connect(ui.sl_led3, SIGNAL(valueChanged(int)), this, SLOT(LED3_Slider(int)));
 	connect(ui.sl_led4, SIGNAL(valueChanged(int)), this, SLOT(LED4_Slider(int)));
+
+	// Slider for Polarisation
+	connect(ui.poly_all, SIGNAL(valueChanged(int)), this, SLOT(poly_Slider(int)));
+	connect(ui.nonpoly_all, SIGNAL(valueChanged(int)), this, SLOT(non_poly_Slider(int)));
+
 }
 
 SerialConnector::~SerialConnector()
@@ -280,6 +285,43 @@ void SerialConnector::LED4_Slider(int arg)
 		return;
 }
 
+void SerialConnector::poly_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_poly_Slider_value = QString::number(arg);
+	while (m_poly_Slider_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_poly_Slider_value.insert(0, QString("0"));
+	}
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString newData = led_str.append("01").append(value_str).append(m_poly_Slider_value);
+	WriteToSerial(newData);	
+	WriteToSerial(newData.replace(3, 2,"02"));
+	WriteToSerial(newData.replace(3, 2, "03"));
+	WriteToSerial(newData.replace(3, 2, "04"));
+}
+void SerialConnector::non_poly_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_non_poly_Slider_value = QString::number(arg);
+	while (m_non_poly_Slider_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_non_poly_Slider_value.insert(0, QString("0"));
+	}
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString newData = led_str.append("05").append(value_str).append(m_non_poly_Slider_value);
+	WriteToSerial(newData);
+	WriteToSerial(newData.replace(3, 2, "06"));
+	WriteToSerial(newData.replace(3, 2, "07"));
+	WriteToSerial(newData.replace(3, 2, "08"));
+}
+
 void SerialConnector::configure()
 {
 	if (m_serial->isOpen())
@@ -325,8 +367,15 @@ void SerialConnector::getDataFromInputBox()
 {
 	if (m_serial && !m_serial->isOpen())
 	return;
+	QString inputString = ui.inputBox->displayText();
 
-	WriteToSerial(ui.inputBox->displayText());
+	int led = inputString.mid(3, 2).toInt();
+	qDebug() << led << endl;
+	int value = inputString.mid(10).toInt();
+	qDebug() << value << endl;
+
+	ui.sl_led1->QSlider::setSliderPosition(value);
+	WriteToSerial(inputString);
 }
 
 // Slot to read from serial
@@ -404,7 +453,7 @@ void SerialConnector::WriteToSerial(QString data)
 
 		int complete_size = qb.size();
 		int send = m_serial->write(qb);
-		QThread::msleep(1);
+		QThread::msleep(10);
 		while (send < complete_size)
 		{
 			m_serial->waitForBytesWritten(1);

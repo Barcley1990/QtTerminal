@@ -311,6 +311,9 @@ QLineEdit{
     </layout>
    </widget>
    <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -320,7 +323,7 @@ QLineEdit{
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -522,98 +525,257 @@ QLineEdit{
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>166</width>
-        <height>98</height>
+        <width>148</width>
+        <height>204</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <layout class="QVBoxLayout" name="verticalLayout_10">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_6">
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
-          <widget class="QCheckBox" name="cb_led1">
-           <property name="text">
-            <string>LED 1</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QCheckBox" name="cb_led1">
+             <property name="text">
+              <string>LED 1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cb_led2">
+             <property name="text">
+              <string>LED 2</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cb_led3">
+             <property name="text">
+              <string>LED 3</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cb_led4">
+             <property name="text">
+              <string>LED 4</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QCheckBox" name="cb_led2">
-           <property name="text">
-            <string>LED 2</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="cb_led3">
-           <property name="text">
-            <string>LED 3</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="cb_led4">
-           <property name="text">
-            <string>LED 4</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QSlider" name="sl_led1">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sl_led2">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sl_led3">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sl_led4">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
-          <widget class="QSlider" name="sl_led1">
-           <property name="maximum">
-            <number>4065</number>
-           </property>
-           <property name="pageStep">
-            <number>100</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QCheckBox" name="cb_led5">
+             <property name="text">
+              <string>LED 5</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cb_led6">
+             <property name="text">
+              <string>LED 6</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cb_led7">
+             <property name="text">
+              <string>LED 7</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cb_led8">
+             <property name="text">
+              <string>LED 8</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QSlider" name="sl_led2">
-           <property name="maximum">
-            <number>4065</number>
-           </property>
-           <property name="pageStep">
-            <number>100</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSlider" name="sl_led3">
-           <property name="maximum">
-            <number>4065</number>
-           </property>
-           <property name="pageStep">
-            <number>100</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSlider" name="sl_led4">
-           <property name="maximum">
-            <number>4065</number>
-           </property>
-           <property name="pageStep">
-            <number>100</number>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QSlider" name="sl_led5">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sl_led6">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sl_led7">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sl_led8">
+             <property name="maximum">
+              <number>4065</number>
+             </property>
+             <property name="pageStep">
+              <number>100</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Tab 3</string>
+     </attribute>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>84</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Polarisation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="poly_all">
+         <property name="maximum">
+          <number>4065</number>
+         </property>
+         <property name="singleStep">
+          <number>10</number>
+         </property>
+         <property name="pageStep">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>without Polarisation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="nonpoly_all">
+         <property name="maximum">
+          <number>4065</number>
+         </property>
+         <property name="singleStep">
+          <number>10</number>
+         </property>
+         <property name="pageStep">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
