@@ -7,7 +7,6 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	
 	// default values
 	scanPortNames();
-	ui.dbitBox->setCurrentIndex(3);
 	ui.baudBox->setCurrentIndex(4);
 	ui.statusLabel->setText("Disconnected");
 	m_CR = false;
@@ -24,12 +23,12 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.ReScanButton, SIGNAL(clicked()), this, SLOT(scanPortNames()));		// Scan Portnames (scan Button)
 	connect(ui.portName, SIGNAL(activated(int)), this, SLOT(choosePort(int)));		// choose Port (dropdown)
 	connect(ui.baudBox, SIGNAL(activated(int)), this, SLOT(chooseBaud(int)));		// choose Baud (dropdown)
-	connect(ui.dbitBox, SIGNAL(activated(int)), this, SLOT(chooseDataBits(int)));	// choose DataBits (dropdown)
 	connect(ui.connectButton, SIGNAL(clicked()), this, SLOT(configure()));			// connect to Port (Pushbutton)
 
 	connect(ui.disconnectButton, SIGNAL(clicked()), this, SLOT(disconnect()));		// disconnect from Port (Pushbutton)
 	connect(m_serial, SIGNAL(readyRead()), this, SLOT(ReadFromSerial()));			// Read from Serial
 	connect(ui.sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));	// Write to Serial
+	connect(ui.resetButton, SIGNAL(clicked()), this, SLOT(Reset()));				// Write "RESET" to Serial
 
 	connect(ui.ledSlider, SIGNAL(textEdited(QString)), this, SLOT(WriteToSlider(QString)));
 	connect(ui.BrightnessSlider, SIGNAL(valueChanged(int)), this, SLOT(SendSlider(int)));
@@ -86,11 +85,6 @@ void SerialConnector::chooseBaud(int arg)
 	bool ok;
 	m_baudrate = m_baud.toInt(&ok, 10);
 	qDebug() << m_baudrate;
-}
-void SerialConnector::chooseDataBits(int arg)
-{
-	m_dbits = ui.dbitBox->itemText(arg);
-	qDebug() << m_dbits;
 }
 
 void SerialConnector::CR_Checkbox(int arg)
@@ -201,6 +195,10 @@ void SerialConnector::LED4_Checkbox(int arg)
 		WriteToSerial("LED04VALUE0000");
 	}
 }
+void SerialConnector::Reset()
+{
+	WriteToSerial("RESET");
+}
 
 void SerialConnector::LED1_Slider(int arg)
 {
@@ -298,11 +296,17 @@ void SerialConnector::poly_Slider(int arg)
 	if (m_serial && !m_serial->isOpen())
 		return;
 	QString newData = led_str.append("01").append(value_str).append(m_poly_Slider_value);
+	
 	WriteToSerial(newData);	
+
 	WriteToSerial(newData.replace(3, 2,"02"));
+	
 	WriteToSerial(newData.replace(3, 2, "03"));
+
 	WriteToSerial(newData.replace(3, 2, "04"));
 }
+
+
 void SerialConnector::non_poly_Slider(int arg)
 {
 	QString led_str = "LED";
@@ -432,7 +436,7 @@ void SerialConnector::SendSlider(int arg)
 // Memberfunction to write to Serial.
 void SerialConnector::WriteToSerial(QString data)
 {
-	qDebug() << data << endl;
+	qDebug() <<"Data to send: " << data << endl;
 	if (!data.isEmpty())
 	{
 		QByteArray qb;
@@ -453,7 +457,6 @@ void SerialConnector::WriteToSerial(QString data)
 
 		int complete_size = qb.size();
 		int send = m_serial->write(qb);
-		QThread::msleep(10);
 		while (send < complete_size)
 		{
 			m_serial->waitForBytesWritten(1);
@@ -461,6 +464,8 @@ void SerialConnector::WriteToSerial(QString data)
 			send += m_serial->write(qb);
 			qDebug() << "Retransmitted: " << send;
 		}
+		QThread::msleep(100);
+		qDebug() << "Data sended: " << qb << endl;
 	}
 	else
 		qDebug() << "Empty String" << endl;

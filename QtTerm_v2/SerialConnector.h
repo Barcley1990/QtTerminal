@@ -29,7 +29,6 @@ private slots :
 	void scanPortNames();
 	void choosePort(int);
 	void chooseBaud(int);
-	void chooseDataBits(int);
 	void configure();
 	void disconnect();
 	void getDataFromInputBox();
@@ -50,7 +49,7 @@ private slots :
 	void poly_Slider(int);
 	void non_poly_Slider(int);
 
-
+	void Reset();
 	void ReadFromSerial();
 	void WriteToSlider(QString);
 	void SendSlider(int);
@@ -78,6 +77,8 @@ private:
 
 	QString m_ledData;
 	QString m_valueData;
+
+	void test(QString);
 
 };
 

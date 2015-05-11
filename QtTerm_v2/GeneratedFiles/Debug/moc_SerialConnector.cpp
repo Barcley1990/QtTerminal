@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SerialConnector_t {
     QByteArrayData data[25];
-    char stringdata[319];
+    char stringdata[310];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,35 +34,35 @@ QT_MOC_LITERAL(1, 16, 13),
 QT_MOC_LITERAL(2, 30, 0),
 QT_MOC_LITERAL(3, 31, 10),
 QT_MOC_LITERAL(4, 42, 10),
-QT_MOC_LITERAL(5, 53, 14),
-QT_MOC_LITERAL(6, 68, 9),
-QT_MOC_LITERAL(7, 78, 10),
-QT_MOC_LITERAL(8, 89, 19),
-QT_MOC_LITERAL(9, 109, 11),
-QT_MOC_LITERAL(10, 121, 11),
-QT_MOC_LITERAL(11, 133, 13),
-QT_MOC_LITERAL(12, 147, 13),
-QT_MOC_LITERAL(13, 161, 13),
-QT_MOC_LITERAL(14, 175, 13),
-QT_MOC_LITERAL(15, 189, 13),
-QT_MOC_LITERAL(16, 203, 11),
-QT_MOC_LITERAL(17, 215, 11),
-QT_MOC_LITERAL(18, 227, 11),
-QT_MOC_LITERAL(19, 239, 11),
-QT_MOC_LITERAL(20, 251, 11),
-QT_MOC_LITERAL(21, 263, 15),
-QT_MOC_LITERAL(22, 279, 14),
-QT_MOC_LITERAL(23, 294, 13),
-QT_MOC_LITERAL(24, 308, 10)
+QT_MOC_LITERAL(5, 53, 9),
+QT_MOC_LITERAL(6, 63, 10),
+QT_MOC_LITERAL(7, 74, 19),
+QT_MOC_LITERAL(8, 94, 11),
+QT_MOC_LITERAL(9, 106, 11),
+QT_MOC_LITERAL(10, 118, 13),
+QT_MOC_LITERAL(11, 132, 13),
+QT_MOC_LITERAL(12, 146, 13),
+QT_MOC_LITERAL(13, 160, 13),
+QT_MOC_LITERAL(14, 174, 13),
+QT_MOC_LITERAL(15, 188, 11),
+QT_MOC_LITERAL(16, 200, 11),
+QT_MOC_LITERAL(17, 212, 11),
+QT_MOC_LITERAL(18, 224, 11),
+QT_MOC_LITERAL(19, 236, 11),
+QT_MOC_LITERAL(20, 248, 15),
+QT_MOC_LITERAL(21, 264, 5),
+QT_MOC_LITERAL(22, 270, 14),
+QT_MOC_LITERAL(23, 285, 13),
+QT_MOC_LITERAL(24, 299, 10)
     },
     "SerialConnector\0scanPortNames\0\0"
-    "choosePort\0chooseBaud\0chooseDataBits\0"
-    "configure\0disconnect\0getDataFromInputBox\0"
+    "choosePort\0chooseBaud\0configure\0"
+    "disconnect\0getDataFromInputBox\0"
     "CR_Checkbox\0LF_Checkbox\0CRLF_Checkbox\0"
     "LED1_Checkbox\0LED2_Checkbox\0LED3_Checkbox\0"
     "LED4_Checkbox\0LED1_Slider\0LED2_Slider\0"
     "LED3_Slider\0LED4_Slider\0poly_Slider\0"
-    "non_poly_Slider\0ReadFromSerial\0"
+    "non_poly_Slider\0Reset\0ReadFromSerial\0"
     "WriteToSlider\0SendSlider"
 };
 #undef QT_MOC_LITERAL
@@ -84,10 +84,10 @@ static const uint qt_meta_data_SerialConnector[] = {
        1,    0,  129,    2, 0x08 /* Private */,
        3,    1,  130,    2, 0x08 /* Private */,
        4,    1,  133,    2, 0x08 /* Private */,
-       5,    1,  136,    2, 0x08 /* Private */,
-       6,    0,  139,    2, 0x08 /* Private */,
-       7,    0,  140,    2, 0x08 /* Private */,
-       8,    0,  141,    2, 0x08 /* Private */,
+       5,    0,  136,    2, 0x08 /* Private */,
+       6,    0,  137,    2, 0x08 /* Private */,
+       7,    0,  138,    2, 0x08 /* Private */,
+       8,    1,  139,    2, 0x08 /* Private */,
        9,    1,  142,    2, 0x08 /* Private */,
       10,    1,  145,    2, 0x08 /* Private */,
       11,    1,  148,    2, 0x08 /* Private */,
@@ -100,16 +100,15 @@ static const uint qt_meta_data_SerialConnector[] = {
       18,    1,  169,    2, 0x08 /* Private */,
       19,    1,  172,    2, 0x08 /* Private */,
       20,    1,  175,    2, 0x08 /* Private */,
-      21,    1,  178,    2, 0x08 /* Private */,
-      22,    0,  181,    2, 0x08 /* Private */,
-      23,    1,  182,    2, 0x08 /* Private */,
-      24,    1,  185,    2, 0x08 /* Private */,
+      21,    0,  178,    2, 0x08 /* Private */,
+      22,    0,  179,    2, 0x08 /* Private */,
+      23,    1,  180,    2, 0x08 /* Private */,
+      24,    1,  183,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
-    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -126,6 +125,7 @@ static const uint qt_meta_data_SerialConnector[] = {
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::Int,    2,
@@ -141,23 +141,23 @@ void SerialConnector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 0: _t->scanPortNames(); break;
         case 1: _t->choosePort((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->chooseBaud((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 3: _t->chooseDataBits((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: _t->configure(); break;
-        case 5: _t->disconnect(); break;
-        case 6: _t->getDataFromInputBox(); break;
-        case 7: _t->CR_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 8: _t->LF_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 9: _t->CRLF_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 10: _t->LED1_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 11: _t->LED2_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 12: _t->LED3_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 13: _t->LED4_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 14: _t->LED1_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 15: _t->LED2_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 16: _t->LED3_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 17: _t->LED4_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 18: _t->poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: _t->non_poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->configure(); break;
+        case 4: _t->disconnect(); break;
+        case 5: _t->getDataFromInputBox(); break;
+        case 6: _t->CR_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->LF_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 8: _t->CRLF_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->LED1_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 10: _t->LED2_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: _t->LED3_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->LED4_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 13: _t->LED1_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 14: _t->LED2_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 15: _t->LED3_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 16: _t->LED4_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 17: _t->poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 18: _t->non_poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 19: _t->Reset(); break;
         case 20: _t->ReadFromSerial(); break;
         case 21: _t->WriteToSlider((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 22: _t->SendSlider((*reinterpret_cast< int(*)>(_a[1]))); break;
