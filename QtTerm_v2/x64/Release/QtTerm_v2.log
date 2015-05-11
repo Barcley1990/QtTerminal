@@ -1,25 +1,37 @@
-﻿Build started 11.05.2015 09:40:53.
-     1>Project "C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\QtTerm_v2.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11.05.2015 10:19:10.
+     1>Project "C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\QtTerm_v2.vcxproj" on node 2 (Rebuild target(s)).
      1>CustomBuild:
+         Uic'ing qtterm_v2.ui...
+     1>C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\qtterm_v2.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget1'.
+     1>C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\qtterm_v2.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget2'.
+     1>C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\qtterm_v2.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget3'.
+     1>C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\qtterm_v2.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget4'.
+     1>C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\qtterm_v2.ui : warning : The name 'layoutWidget' (QWidget) is already in use, defaulting to 'layoutWidget5'.
          Moc'ing SerialConnector.h...
+         Rcc'ing qtterm_v2.qrc...
+     1>RCC : warning : No resources in 'C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\qtterm_v2.qrc'.
+         
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include" /I.\GeneratedFiles\Release /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtCore" /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtGui" /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtWidgets" /nologo /W1 /WX- /O2 /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\qrc_qtterm_v2.cpp
          qrc_qtterm_v2.cpp
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include" /I.\GeneratedFiles\Release /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtCore" /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtGui" /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtWidgets" /nologo /W1 /WX- /O2 /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\Release\moc_SerialConnector.cpp SerialConnector.cpp main.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include" /I.\GeneratedFiles\Release /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtCore" /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtGui" /I"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\include\QtWidgets" /nologo /W1 /WX- /O2 /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\Release\moc_SerialConnector.cpp main.cpp SerialConnector.cpp
          moc_SerialConnector.cpp
-         SerialConnector.cpp
          main.cpp
+         SerialConnector.cpp
          Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"x64\Release\A_Ringlicht.res" ..\A_Ringlicht.rc 
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\\QtTerm_v2.exe" /NOLOGO /LIBPATH:"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\lib" qtmain.lib Qt5Core.lib Qt5Gui.lib Qt5Widgets.lib Qt5SerialPort.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\QtTerm_v2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\QtTerm_v2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\QtTerm_v2.lib" /MACHINE:X64 x64\Release\qrc_qtterm_v2.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\\QtTerm_v2.exe" /NOLOGO /LIBPATH:"C:\Qt\qt-5.3.2-x64-msvc2010-opengl\qt-5.3.2-x64-msvc2010-opengl\lib" qtmain.lib Qt5Core.lib Qt5Gui.lib Qt5Widgets.lib Qt5SerialPort.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\QtTerm_v2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\QtTerm_v2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\QtTerm_v2.lib" /MACHINE:X64 x64\Release\A_Ringlicht.res
+         x64\Release\qrc_qtterm_v2.obj
          x64\Release\moc_SerialConnector.obj
          x64\Release\main.obj
          x64\Release\SerialConnector.obj
          QtTerm_v2.vcxproj -> C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\QtTerm_v2.exe
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\x64\Release\\QtTerm_v2.exe;#1" /manifest x64\Release\QtTerm_v2.exe.intermediate.manifest
-     1>Done Building Project "C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\QtTerm_v2.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\QtTerm_v2.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.24
+Time Elapsed 00:00:06.84

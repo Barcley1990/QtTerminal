@@ -296,17 +296,11 @@ void SerialConnector::poly_Slider(int arg)
 	if (m_serial && !m_serial->isOpen())
 		return;
 	QString newData = led_str.append("01").append(value_str).append(m_poly_Slider_value);
-	
 	WriteToSerial(newData);	
-
 	WriteToSerial(newData.replace(3, 2,"02"));
-	
 	WriteToSerial(newData.replace(3, 2, "03"));
-
 	WriteToSerial(newData.replace(3, 2, "04"));
 }
-
-
 void SerialConnector::non_poly_Slider(int arg)
 {
 	QString led_str = "LED";
