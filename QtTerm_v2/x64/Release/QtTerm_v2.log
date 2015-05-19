@@ -1,4 +1,4 @@
-﻿Build started 19.05.2015 16:36:24.
+﻿Build started 19.05.2015 16:45:56.
      1>Project "C:\Users\tobnu\documents\visual studio 2013\Projects\QtTerm_v2\QtTerm_v2\QtTerm_v2.vcxproj" on node 2 (Build target(s)).
      1>CustomBuild:
          Uic'ing qtterm_v2.ui...
@@ -21,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.69
+Time Elapsed 00:00:05.72
