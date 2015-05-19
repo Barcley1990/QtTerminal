@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SerialConnector_t {
-    QByteArrayData data[25];
-    char stringdata[310];
+    QByteArrayData data[33];
+    char stringdata[414];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,26 +44,37 @@ QT_MOC_LITERAL(11, 132, 13),
 QT_MOC_LITERAL(12, 146, 13),
 QT_MOC_LITERAL(13, 160, 13),
 QT_MOC_LITERAL(14, 174, 13),
-QT_MOC_LITERAL(15, 188, 11),
-QT_MOC_LITERAL(16, 200, 11),
-QT_MOC_LITERAL(17, 212, 11),
-QT_MOC_LITERAL(18, 224, 11),
-QT_MOC_LITERAL(19, 236, 11),
-QT_MOC_LITERAL(20, 248, 15),
-QT_MOC_LITERAL(21, 264, 5),
-QT_MOC_LITERAL(22, 270, 14),
-QT_MOC_LITERAL(23, 285, 13),
-QT_MOC_LITERAL(24, 299, 10)
+QT_MOC_LITERAL(15, 188, 13),
+QT_MOC_LITERAL(16, 202, 13),
+QT_MOC_LITERAL(17, 216, 13),
+QT_MOC_LITERAL(18, 230, 13),
+QT_MOC_LITERAL(19, 244, 11),
+QT_MOC_LITERAL(20, 256, 11),
+QT_MOC_LITERAL(21, 268, 11),
+QT_MOC_LITERAL(22, 280, 11),
+QT_MOC_LITERAL(23, 292, 11),
+QT_MOC_LITERAL(24, 304, 11),
+QT_MOC_LITERAL(25, 316, 11),
+QT_MOC_LITERAL(26, 328, 11),
+QT_MOC_LITERAL(27, 340, 11),
+QT_MOC_LITERAL(28, 352, 15),
+QT_MOC_LITERAL(29, 368, 5),
+QT_MOC_LITERAL(30, 374, 14),
+QT_MOC_LITERAL(31, 389, 13),
+QT_MOC_LITERAL(32, 403, 10)
     },
     "SerialConnector\0scanPortNames\0\0"
     "choosePort\0chooseBaud\0configure\0"
     "disconnect\0getDataFromInputBox\0"
     "CR_Checkbox\0LF_Checkbox\0CRLF_Checkbox\0"
     "LED1_Checkbox\0LED2_Checkbox\0LED3_Checkbox\0"
-    "LED4_Checkbox\0LED1_Slider\0LED2_Slider\0"
-    "LED3_Slider\0LED4_Slider\0poly_Slider\0"
-    "non_poly_Slider\0Reset\0ReadFromSerial\0"
-    "WriteToSlider\0SendSlider"
+    "LED4_Checkbox\0LED5_Checkbox\0LED6_Checkbox\0"
+    "LED7_Checkbox\0LED8_Checkbox\0LED1_Slider\0"
+    "LED2_Slider\0LED3_Slider\0LED4_Slider\0"
+    "LED5_Slider\0LED6_Slider\0LED7_Slider\0"
+    "LED8_Slider\0poly_Slider\0non_poly_Slider\0"
+    "Reset\0ReadFromSerial\0WriteToSlider\0"
+    "SendSlider"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,7 +84,7 @@ static const uint qt_meta_data_SerialConnector[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      31,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,29 +92,37 @@ static const uint qt_meta_data_SerialConnector[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  129,    2, 0x08 /* Private */,
-       3,    1,  130,    2, 0x08 /* Private */,
-       4,    1,  133,    2, 0x08 /* Private */,
-       5,    0,  136,    2, 0x08 /* Private */,
-       6,    0,  137,    2, 0x08 /* Private */,
-       7,    0,  138,    2, 0x08 /* Private */,
-       8,    1,  139,    2, 0x08 /* Private */,
-       9,    1,  142,    2, 0x08 /* Private */,
-      10,    1,  145,    2, 0x08 /* Private */,
-      11,    1,  148,    2, 0x08 /* Private */,
-      12,    1,  151,    2, 0x08 /* Private */,
-      13,    1,  154,    2, 0x08 /* Private */,
-      14,    1,  157,    2, 0x08 /* Private */,
-      15,    1,  160,    2, 0x08 /* Private */,
-      16,    1,  163,    2, 0x08 /* Private */,
-      17,    1,  166,    2, 0x08 /* Private */,
-      18,    1,  169,    2, 0x08 /* Private */,
-      19,    1,  172,    2, 0x08 /* Private */,
-      20,    1,  175,    2, 0x08 /* Private */,
-      21,    0,  178,    2, 0x08 /* Private */,
-      22,    0,  179,    2, 0x08 /* Private */,
-      23,    1,  180,    2, 0x08 /* Private */,
-      24,    1,  183,    2, 0x08 /* Private */,
+       1,    0,  169,    2, 0x08 /* Private */,
+       3,    1,  170,    2, 0x08 /* Private */,
+       4,    1,  173,    2, 0x08 /* Private */,
+       5,    0,  176,    2, 0x08 /* Private */,
+       6,    0,  177,    2, 0x08 /* Private */,
+       7,    0,  178,    2, 0x08 /* Private */,
+       8,    1,  179,    2, 0x08 /* Private */,
+       9,    1,  182,    2, 0x08 /* Private */,
+      10,    1,  185,    2, 0x08 /* Private */,
+      11,    1,  188,    2, 0x08 /* Private */,
+      12,    1,  191,    2, 0x08 /* Private */,
+      13,    1,  194,    2, 0x08 /* Private */,
+      14,    1,  197,    2, 0x08 /* Private */,
+      15,    1,  200,    2, 0x08 /* Private */,
+      16,    1,  203,    2, 0x08 /* Private */,
+      17,    1,  206,    2, 0x08 /* Private */,
+      18,    1,  209,    2, 0x08 /* Private */,
+      19,    1,  212,    2, 0x08 /* Private */,
+      20,    1,  215,    2, 0x08 /* Private */,
+      21,    1,  218,    2, 0x08 /* Private */,
+      22,    1,  221,    2, 0x08 /* Private */,
+      23,    1,  224,    2, 0x08 /* Private */,
+      24,    1,  227,    2, 0x08 /* Private */,
+      25,    1,  230,    2, 0x08 /* Private */,
+      26,    1,  233,    2, 0x08 /* Private */,
+      27,    1,  236,    2, 0x08 /* Private */,
+      28,    1,  239,    2, 0x08 /* Private */,
+      29,    0,  242,    2, 0x08 /* Private */,
+      30,    0,  243,    2, 0x08 /* Private */,
+      31,    1,  244,    2, 0x08 /* Private */,
+      32,    1,  247,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -112,6 +131,14 @@ static const uint qt_meta_data_SerialConnector[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
@@ -151,16 +178,24 @@ void SerialConnector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 10: _t->LED2_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->LED3_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 12: _t->LED4_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 13: _t->LED1_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 14: _t->LED2_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 15: _t->LED3_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 16: _t->LED4_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 17: _t->poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 18: _t->non_poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: _t->Reset(); break;
-        case 20: _t->ReadFromSerial(); break;
-        case 21: _t->WriteToSlider((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 22: _t->SendSlider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 13: _t->LED5_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 14: _t->LED6_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 15: _t->LED7_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 16: _t->LED8_Checkbox((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 17: _t->LED1_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 18: _t->LED2_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 19: _t->LED3_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 20: _t->LED4_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 21: _t->LED5_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 22: _t->LED6_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 23: _t->LED7_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 24: _t->LED8_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 25: _t->poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 26: _t->non_poly_Slider((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 27: _t->Reset(); break;
+        case 28: _t->ReadFromSerial(); break;
+        case 29: _t->WriteToSlider((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 30: _t->SendSlider((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -191,13 +226,13 @@ int SerialConnector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 31)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 31;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 31)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 23;
+        _id -= 31;
     }
     return _id;
 }

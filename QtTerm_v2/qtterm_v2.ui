@@ -718,13 +718,13 @@ QLineEdit{
        <item>
         <widget class="QSlider" name="poly_all">
          <property name="maximum">
-          <number>4065</number>
+          <number>255</number>
          </property>
          <property name="singleStep">
-          <number>10</number>
+          <number>5</number>
          </property>
          <property name="pageStep">
-          <number>100</number>
+          <number>20</number>
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -741,13 +741,13 @@ QLineEdit{
        <item>
         <widget class="QSlider" name="nonpoly_all">
          <property name="maximum">
-          <number>4065</number>
+          <number>255</number>
          </property>
          <property name="singleStep">
-          <number>10</number>
+          <number>5</number>
          </property>
          <property name="pageStep">
-          <number>100</number>
+          <number>20</number>
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>

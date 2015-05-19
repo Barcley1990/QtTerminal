@@ -574,9 +574,9 @@ public:
 
         poly_all = new QSlider(layoutWidget5);
         poly_all->setObjectName(QStringLiteral("poly_all"));
-        poly_all->setMaximum(4065);
-        poly_all->setSingleStep(10);
-        poly_all->setPageStep(100);
+        poly_all->setMaximum(255);
+        poly_all->setSingleStep(5);
+        poly_all->setPageStep(20);
         poly_all->setOrientation(Qt::Horizontal);
 
         verticalLayout_11->addWidget(poly_all);
@@ -588,9 +588,9 @@ public:
 
         nonpoly_all = new QSlider(layoutWidget5);
         nonpoly_all->setObjectName(QStringLiteral("nonpoly_all"));
-        nonpoly_all->setMaximum(4065);
-        nonpoly_all->setSingleStep(10);
-        nonpoly_all->setPageStep(100);
+        nonpoly_all->setMaximum(255);
+        nonpoly_all->setSingleStep(5);
+        nonpoly_all->setPageStep(20);
         nonpoly_all->setOrientation(Qt::Horizontal);
 
         verticalLayout_11->addWidget(nonpoly_all);

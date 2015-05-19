@@ -459,39 +459,19 @@ void SerialConnector::LED8_Slider(int arg)
 
 void SerialConnector::poly_Slider(int arg)
 {
-	QString led_str = "LED";
-	QString value_str = "VALUE";
+	QString yesPoly = "YPOLY";
 	m_poly_Slider_value = QString::number(arg);
-	while (m_poly_Slider_value.length() < 4)
-	{
-		qDebug() << "zu klein" << endl;
-		m_poly_Slider_value.insert(0, QString("0"));
-	}
 	if (m_serial && !m_serial->isOpen())
 		return;
-	QString newData = led_str.append("01").append(value_str).append(m_poly_Slider_value);
-	WriteToSerial(newData);	
-	WriteToSerial(newData.replace(3, 2,"02"));
-	WriteToSerial(newData.replace(3, 2, "03"));
-	WriteToSerial(newData.replace(3, 2, "04"));
+	WriteToSerial(yesPoly.append(m_poly_Slider_value));
 }
 void SerialConnector::non_poly_Slider(int arg)
 {
-	QString led_str = "LED";
-	QString value_str = "VALUE";
+	QString noPoly = "NPOLY";
 	m_non_poly_Slider_value = QString::number(arg);
-	while (m_non_poly_Slider_value.length() < 4)
-	{
-		qDebug() << "zu klein" << endl;
-		m_non_poly_Slider_value.insert(0, QString("0"));
-	}
 	if (m_serial && !m_serial->isOpen())
 		return;
-	QString newData = led_str.append("05").append(value_str).append(m_non_poly_Slider_value);
-	WriteToSerial(newData);
-	WriteToSerial(newData.replace(3, 2, "06"));
-	WriteToSerial(newData.replace(3, 2, "07"));
-	WriteToSerial(newData.replace(3, 2, "08"));
+	WriteToSerial(noPoly.append(m_non_poly_Slider_value));
 }
 
 void SerialConnector::configure()
