@@ -41,10 +41,18 @@ private slots :
 	void LED2_Checkbox(int);
 	void LED3_Checkbox(int);
 	void LED4_Checkbox(int);
+	void LED5_Checkbox(int);
+	void LED6_Checkbox(int);
+	void LED7_Checkbox(int);
+	void LED8_Checkbox(int);
 	void LED1_Slider(int);
 	void LED2_Slider(int);
 	void LED3_Slider(int);
 	void LED4_Slider(int);
+	void LED5_Slider(int);
+	void LED6_Slider(int);
+	void LED7_Slider(int);
+	void LED8_Slider(int);
 
 	void poly_Slider(int);
 	void non_poly_Slider(int);
@@ -63,11 +71,19 @@ private:
 	bool m_led2;
 	bool m_led3;
 	bool m_led4;
+	bool m_led5;
+	bool m_led6;
+	bool m_led7;
+	bool m_led8;
 
 	QString m_slider1_value;
 	QString m_slider2_value;
 	QString m_slider3_value;
 	QString m_slider4_value;
+	QString m_slider5_value;
+	QString m_slider6_value;
+	QString m_slider7_value;
+	QString m_slider8_value;
 
 	QString m_poly_Slider_value;
 	QString m_non_poly_Slider_value;

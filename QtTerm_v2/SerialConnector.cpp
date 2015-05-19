@@ -18,6 +18,10 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	m_slider2_value = "0000";
 	m_slider3_value = "0000";
 	m_slider4_value = "0000";
+	m_slider5_value = "0000";
+	m_slider6_value = "0000";
+	m_slider7_value = "0000";
+	m_slider8_value = "0000";
 
 
 	connect(ui.ReScanButton, SIGNAL(clicked()), this, SLOT(scanPortNames()));		// Scan Portnames (scan Button)
@@ -41,10 +45,19 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.cb_led2, SIGNAL(stateChanged(int)), this, SLOT(LED2_Checkbox(int)));
 	connect(ui.cb_led3, SIGNAL(stateChanged(int)), this, SLOT(LED3_Checkbox(int)));
 	connect(ui.cb_led4, SIGNAL(stateChanged(int)), this, SLOT(LED4_Checkbox(int)));
+	connect(ui.cb_led5, SIGNAL(stateChanged(int)), this, SLOT(LED5_Checkbox(int)));
+	connect(ui.cb_led6, SIGNAL(stateChanged(int)), this, SLOT(LED6_Checkbox(int)));
+	connect(ui.cb_led7, SIGNAL(stateChanged(int)), this, SLOT(LED7_Checkbox(int)));
+	connect(ui.cb_led8, SIGNAL(stateChanged(int)), this, SLOT(LED8_Checkbox(int)));
+	
 	connect(ui.sl_led1, SIGNAL(valueChanged(int)), this, SLOT(LED1_Slider(int)));
 	connect(ui.sl_led2, SIGNAL(valueChanged(int)), this, SLOT(LED2_Slider(int)));
 	connect(ui.sl_led3, SIGNAL(valueChanged(int)), this, SLOT(LED3_Slider(int)));
 	connect(ui.sl_led4, SIGNAL(valueChanged(int)), this, SLOT(LED4_Slider(int)));
+	connect(ui.sl_led5, SIGNAL(valueChanged(int)), this, SLOT(LED5_Slider(int)));
+	connect(ui.sl_led6, SIGNAL(valueChanged(int)), this, SLOT(LED6_Slider(int)));
+	connect(ui.sl_led7, SIGNAL(valueChanged(int)), this, SLOT(LED7_Slider(int)));
+	connect(ui.sl_led8, SIGNAL(valueChanged(int)), this, SLOT(LED8_Slider(int)));
 
 	// Slider for Polarisation
 	connect(ui.poly_all, SIGNAL(valueChanged(int)), this, SLOT(poly_Slider(int)));
@@ -195,6 +208,87 @@ void SerialConnector::LED4_Checkbox(int arg)
 		WriteToSerial("LED04VALUE0000");
 	}
 }
+void SerialConnector::LED5_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led5 = arg;
+	if (led5 == 2) // if checked
+	{
+		m_led5 = true;
+
+		QString newData = led_str.append("05").append(value_str).append(m_slider5_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led5 = false;
+		WriteToSerial("LED05VALUE0000");
+	}
+}
+void SerialConnector::LED6_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led6 = arg;
+	if (led6 == 2) // if checked
+	{
+		m_led6 = true;
+
+		QString newData = led_str.append("06").append(value_str).append(m_slider6_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led6 = false;
+		WriteToSerial("LED06VALUE0000");
+	}
+}
+void SerialConnector::LED7_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led7 = arg;
+	if (led7 == 2) // if checked
+	{
+		m_led7 = true;
+
+		QString newData = led_str.append("07").append(value_str).append(m_slider7_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led7 = false;
+		WriteToSerial("LED07VALUE0000");
+	}
+}
+void SerialConnector::LED8_Checkbox(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	int led8 = arg;
+	if (led8 == 2) // if checked
+	{
+		m_led8 = true;
+
+		QString newData = led_str.append("08").append(value_str).append(m_slider8_value);
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+	{
+		m_led8 = false;
+		WriteToSerial("LED08VALUE0000");
+	}
+}
+
 void SerialConnector::Reset()
 {
 	WriteToSerial("RESET");
@@ -274,6 +368,86 @@ void SerialConnector::LED4_Slider(int arg)
 	}
 	QString newData = led_str.append("04").append(value_str).append(m_slider4_value);
 	if (m_led4)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+void SerialConnector::LED5_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider5_value = QString::number(arg);
+	while (m_slider5_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider5_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("05").append(value_str).append(m_slider5_value);
+	if (m_led5)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+void SerialConnector::LED6_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider6_value = QString::number(arg);
+	while (m_slider6_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider6_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("06").append(value_str).append(m_slider6_value);
+	if (m_led6)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+void SerialConnector::LED7_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider7_value = QString::number(arg);
+	while (m_slider7_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider7_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("07").append(value_str).append(m_slider7_value);
+	if (m_led7)
+	{
+		if (m_serial && !m_serial->isOpen())
+			return;
+		WriteToSerial(newData);
+	}
+	else
+		return;
+}
+void SerialConnector::LED8_Slider(int arg)
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	m_slider8_value = QString::number(arg);
+	while (m_slider8_value.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		m_slider8_value.insert(0, QString("0"));
+	}
+	QString newData = led_str.append("08").append(value_str).append(m_slider8_value);
+	if (m_led8)
 	{
 		if (m_serial && !m_serial->isOpen())
 			return;
