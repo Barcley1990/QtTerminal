@@ -33,9 +33,6 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(m_serial, SIGNAL(readyRead()), this, SLOT(ReadFromSerial()));			// Read from Serial
 	connect(ui.sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));	// Write to Serial
 	connect(ui.resetButton, SIGNAL(clicked()), this, SLOT(Reset()));				// Write "RESET" to Serial
-
-	connect(ui.ledSlider, SIGNAL(textEdited(QString)), this, SLOT(WriteToSlider(QString)));
-	connect(ui.BrightnessSlider, SIGNAL(valueChanged(int)), this, SLOT(SendSlider(int)));
 	
 	connect(ui.checkBoxCR, SIGNAL(stateChanged(int)), this, SLOT(CR_Checkbox(int)));		// CR Checkbox
 	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));		// CR Checkbox
@@ -550,35 +547,6 @@ void SerialConnector::ReadFromSerial()
 		m_qb.clear();
 	}
 
-}
-
-// Slot is called if textfield was changed.
-void SerialConnector::WriteToSlider(QString arg)
-{
-	m_ledData = arg;
-	qDebug() << m_ledData << endl;
-}
-
-// Slot is called if slidervalue was changed.
-void SerialConnector::SendSlider(int arg)
-{
-	m_valueData = QString::number(arg);
-	qDebug() << m_valueData << endl;
-	//QString zeroesAdded;
-	while (m_valueData.length() < 4)
-	{
-		qDebug() << "zu klein" << endl;
-		m_valueData.insert(0, QString("0"));
-	}
-	
-	QString led = "LED";
-	QString value = "VALUE";
-	QString newData = led.append(m_ledData).append(value).append(m_valueData);
-	qDebug() << newData << endl;
-
-	if (m_serial && !m_serial->isOpen())
-		return;
-	WriteToSerial(newData);
 }
 
 // Memberfunction to write to Serial.

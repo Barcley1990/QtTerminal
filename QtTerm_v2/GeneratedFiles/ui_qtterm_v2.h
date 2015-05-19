@@ -38,30 +38,20 @@ class Ui_QtTerm_v2Class
 public:
     QAction *actionQuit;
     QWidget *centralWidget;
-    QPlainTextEdit *outputBox;
-    QLineEdit *inputBox;
-    QLabel *statusLabel;
-    QWidget *layoutWidget;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_13;
+    QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label;
     QPushButton *clearOutputButton;
     QSpacerItem *horizontalSpacer;
-    QWidget *layoutWidget1;
-    QHBoxLayout *horizontalLayout_6;
+    QPlainTextEdit *outputBox;
+    QHBoxLayout *horizontalLayout_4;
     QLabel *label_2;
     QPushButton *clearInputButton;
     QSpacerItem *horizontalSpacer_2;
-    QLineEdit *ledSlider;
-    QWidget *layoutWidget2;
-    QVBoxLayout *verticalLayout_5;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *label_6;
-    QSpacerItem *horizontalSpacer_4;
-    QSlider *BrightnessSlider;
-    QWidget *layoutWidget3;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_7;
-    QSpacerItem *horizontalSpacer_3;
+    QLineEdit *inputBox;
+    QLabel *statusLabel;
     QTabWidget *tabWidget;
     QWidget *tab;
     QWidget *layoutWidget_2;
@@ -85,7 +75,8 @@ public:
     QPushButton *sendButton;
     QPushButton *resetButton;
     QWidget *tab_2;
-    QWidget *layoutWidget4;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_22;
     QVBoxLayout *verticalLayout_10;
     QHBoxLayout *horizontalLayout_9;
     QVBoxLayout *verticalLayout_6;
@@ -109,13 +100,20 @@ public:
     QSlider *sl_led6;
     QSlider *sl_led7;
     QSlider *sl_led8;
-    QWidget *tab_3;
-    QWidget *layoutWidget5;
     QVBoxLayout *verticalLayout_11;
     QLabel *label_8;
     QSlider *poly_all;
     QLabel *label_9;
     QSlider *nonpoly_all;
+    QWidget *tab_3;
+    QCheckBox *cb_led1_3;
+    QCheckBox *cb_led3_3;
+    QCheckBox *cb_led4_3;
+    QCheckBox *cb_led2_3;
+    QCheckBox *cb_led5_3;
+    QCheckBox *cb_led6_3;
+    QCheckBox *cb_led7_3;
+    QCheckBox *cb_led8_3;
     QMenuBar *menuBar;
     QMenu *menuMain;
     QStatusBar *statusBar;
@@ -126,14 +124,14 @@ public:
             QtTerm_v2Class->setObjectName(QStringLiteral("QtTerm_v2Class"));
         QtTerm_v2Class->setWindowModality(Qt::NonModal);
         QtTerm_v2Class->setEnabled(true);
-        QtTerm_v2Class->resize(460, 320);
+        QtTerm_v2Class->resize(500, 380);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(QtTerm_v2Class->sizePolicy().hasHeightForWidth());
         QtTerm_v2Class->setSizePolicy(sizePolicy);
-        QtTerm_v2Class->setMinimumSize(QSize(460, 320));
-        QtTerm_v2Class->setMaximumSize(QSize(460, 320));
+        QtTerm_v2Class->setMinimumSize(QSize(500, 380));
+        QtTerm_v2Class->setMaximumSize(QSize(500, 380));
         QFont font;
         font.setBold(false);
         font.setItalic(false);
@@ -189,121 +187,84 @@ public:
         actionQuit->setObjectName(QStringLiteral("actionQuit"));
         centralWidget = new QWidget(QtTerm_v2Class);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        outputBox = new QPlainTextEdit(centralWidget);
-        outputBox->setObjectName(QStringLiteral("outputBox"));
-        outputBox->setGeometry(QRect(10, 30, 231, 101));
-        outputBox->setReadOnly(true);
-        inputBox = new QLineEdit(centralWidget);
-        inputBox->setObjectName(QStringLiteral("inputBox"));
-        inputBox->setGeometry(QRect(10, 170, 231, 20));
-        statusLabel = new QLabel(centralWidget);
-        statusLabel->setObjectName(QStringLiteral("statusLabel"));
-        statusLabel->setGeometry(QRect(10, 240, 221, 16));
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 0, 211, 25));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget);
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 6, 481, 331));
+        horizontalLayout_13 = new QHBoxLayout(widget);
+        horizontalLayout_13->setSpacing(6);
+        horizontalLayout_13->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(layoutWidget);
+        label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
 
         horizontalLayout_5->addWidget(label);
 
-        clearOutputButton = new QPushButton(layoutWidget);
+        clearOutputButton = new QPushButton(widget);
         clearOutputButton->setObjectName(QStringLiteral("clearOutputButton"));
 
         horizontalLayout_5->addWidget(clearOutputButton);
 
-        horizontalSpacer = new QSpacerItem(78, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer = new QSpacerItem(138, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_5->addItem(horizontalSpacer);
 
-        layoutWidget1 = new QWidget(centralWidget);
-        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(20, 140, 207, 25));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget1);
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(layoutWidget1);
+
+        verticalLayout_5->addLayout(horizontalLayout_5);
+
+        outputBox = new QPlainTextEdit(widget);
+        outputBox->setObjectName(QStringLiteral("outputBox"));
+        outputBox->setReadOnly(true);
+
+        verticalLayout_5->addWidget(outputBox);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        horizontalLayout_6->addWidget(label_2);
+        horizontalLayout_4->addWidget(label_2);
 
-        clearInputButton = new QPushButton(layoutWidget1);
+        clearInputButton = new QPushButton(widget);
         clearInputButton->setObjectName(QStringLiteral("clearInputButton"));
 
-        horizontalLayout_6->addWidget(clearInputButton);
+        horizontalLayout_4->addWidget(clearInputButton);
 
-        horizontalSpacer_2 = new QSpacerItem(78, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(138, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_6->addItem(horizontalSpacer_2);
-
-        ledSlider = new QLineEdit(centralWidget);
-        ledSlider->setObjectName(QStringLiteral("ledSlider"));
-        ledSlider->setGeometry(QRect(11, 219, 71, 20));
-        layoutWidget2 = new QWidget(centralWidget);
-        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(100, 190, 128, 49));
-        verticalLayout_5 = new QVBoxLayout(layoutWidget2);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        label_6 = new QLabel(layoutWidget2);
-        label_6->setObjectName(QStringLiteral("label_6"));
-
-        horizontalLayout_7->addWidget(label_6);
-
-        horizontalSpacer_4 = new QSpacerItem(68, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer_4);
+        horizontalLayout_4->addItem(horizontalSpacer_2);
 
 
-        verticalLayout_5->addLayout(horizontalLayout_7);
+        verticalLayout_5->addLayout(horizontalLayout_4);
 
-        BrightnessSlider = new QSlider(layoutWidget2);
-        BrightnessSlider->setObjectName(QStringLiteral("BrightnessSlider"));
-        BrightnessSlider->setMaximum(4065);
-        BrightnessSlider->setSingleStep(10);
-        BrightnessSlider->setPageStep(100);
-        BrightnessSlider->setOrientation(Qt::Horizontal);
+        inputBox = new QLineEdit(widget);
+        inputBox->setObjectName(QStringLiteral("inputBox"));
 
-        verticalLayout_5->addWidget(BrightnessSlider);
+        verticalLayout_5->addWidget(inputBox);
 
-        layoutWidget3 = new QWidget(centralWidget);
-        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(11, 191, 74, 22));
-        horizontalLayout_8 = new QHBoxLayout(layoutWidget3);
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label_7 = new QLabel(layoutWidget3);
-        label_7->setObjectName(QStringLiteral("label_7"));
+        statusLabel = new QLabel(widget);
+        statusLabel->setObjectName(QStringLiteral("statusLabel"));
 
-        horizontalLayout_8->addWidget(label_7);
+        verticalLayout_5->addWidget(statusLabel);
 
-        horizontalSpacer_3 = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_8->addItem(horizontalSpacer_3);
+        horizontalLayout_13->addLayout(verticalLayout_5);
 
-        tabWidget = new QTabWidget(centralWidget);
+        tabWidget = new QTabWidget(widget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setEnabled(true);
-        tabWidget->setGeometry(QRect(250, 0, 201, 281));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         layoutWidget_2 = new QWidget(tab);
         layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(10, 0, 181, 241));
+        layoutWidget_2->setGeometry(QRect(10, 0, 191, 241));
         verticalLayout_4 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -408,36 +369,39 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
-        layoutWidget4 = new QWidget(tab_2);
-        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 10, 148, 204));
-        verticalLayout_10 = new QVBoxLayout(layoutWidget4);
+        widget1 = new QWidget(tab_2);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(10, 10, 181, 281));
+        verticalLayout_22 = new QVBoxLayout(widget1);
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
+        verticalLayout_22->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setSpacing(6);
-        verticalLayout_10->setContentsMargins(11, 11, 11, 11);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        verticalLayout_10->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setSpacing(6);
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setSpacing(6);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        cb_led1 = new QCheckBox(layoutWidget4);
+        cb_led1 = new QCheckBox(widget1);
         cb_led1->setObjectName(QStringLiteral("cb_led1"));
 
         verticalLayout_6->addWidget(cb_led1);
 
-        cb_led2 = new QCheckBox(layoutWidget4);
+        cb_led2 = new QCheckBox(widget1);
         cb_led2->setObjectName(QStringLiteral("cb_led2"));
 
         verticalLayout_6->addWidget(cb_led2);
 
-        cb_led3 = new QCheckBox(layoutWidget4);
+        cb_led3 = new QCheckBox(widget1);
         cb_led3->setObjectName(QStringLiteral("cb_led3"));
 
         verticalLayout_6->addWidget(cb_led3);
 
-        cb_led4 = new QCheckBox(layoutWidget4);
+        cb_led4 = new QCheckBox(widget1);
         cb_led4->setObjectName(QStringLiteral("cb_led4"));
 
         verticalLayout_6->addWidget(cb_led4);
@@ -448,7 +412,7 @@ public:
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setSpacing(6);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        sl_led1 = new QSlider(layoutWidget4);
+        sl_led1 = new QSlider(widget1);
         sl_led1->setObjectName(QStringLiteral("sl_led1"));
         sl_led1->setMaximum(4065);
         sl_led1->setPageStep(100);
@@ -456,7 +420,7 @@ public:
 
         verticalLayout_7->addWidget(sl_led1);
 
-        sl_led2 = new QSlider(layoutWidget4);
+        sl_led2 = new QSlider(widget1);
         sl_led2->setObjectName(QStringLiteral("sl_led2"));
         sl_led2->setMaximum(4065);
         sl_led2->setPageStep(100);
@@ -464,7 +428,7 @@ public:
 
         verticalLayout_7->addWidget(sl_led2);
 
-        sl_led3 = new QSlider(layoutWidget4);
+        sl_led3 = new QSlider(widget1);
         sl_led3->setObjectName(QStringLiteral("sl_led3"));
         sl_led3->setMaximum(4065);
         sl_led3->setPageStep(100);
@@ -472,7 +436,7 @@ public:
 
         verticalLayout_7->addWidget(sl_led3);
 
-        sl_led4 = new QSlider(layoutWidget4);
+        sl_led4 = new QSlider(widget1);
         sl_led4->setObjectName(QStringLiteral("sl_led4"));
         sl_led4->setMaximum(4065);
         sl_led4->setPageStep(100);
@@ -492,22 +456,22 @@ public:
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setSpacing(6);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        cb_led5 = new QCheckBox(layoutWidget4);
+        cb_led5 = new QCheckBox(widget1);
         cb_led5->setObjectName(QStringLiteral("cb_led5"));
 
         verticalLayout_8->addWidget(cb_led5);
 
-        cb_led6 = new QCheckBox(layoutWidget4);
+        cb_led6 = new QCheckBox(widget1);
         cb_led6->setObjectName(QStringLiteral("cb_led6"));
 
         verticalLayout_8->addWidget(cb_led6);
 
-        cb_led7 = new QCheckBox(layoutWidget4);
+        cb_led7 = new QCheckBox(widget1);
         cb_led7->setObjectName(QStringLiteral("cb_led7"));
 
         verticalLayout_8->addWidget(cb_led7);
 
-        cb_led8 = new QCheckBox(layoutWidget4);
+        cb_led8 = new QCheckBox(widget1);
         cb_led8->setObjectName(QStringLiteral("cb_led8"));
 
         verticalLayout_8->addWidget(cb_led8);
@@ -518,7 +482,7 @@ public:
         verticalLayout_9 = new QVBoxLayout();
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        sl_led5 = new QSlider(layoutWidget4);
+        sl_led5 = new QSlider(widget1);
         sl_led5->setObjectName(QStringLiteral("sl_led5"));
         sl_led5->setMaximum(4065);
         sl_led5->setPageStep(100);
@@ -526,7 +490,7 @@ public:
 
         verticalLayout_9->addWidget(sl_led5);
 
-        sl_led6 = new QSlider(layoutWidget4);
+        sl_led6 = new QSlider(widget1);
         sl_led6->setObjectName(QStringLiteral("sl_led6"));
         sl_led6->setMaximum(4065);
         sl_led6->setPageStep(100);
@@ -534,7 +498,7 @@ public:
 
         verticalLayout_9->addWidget(sl_led6);
 
-        sl_led7 = new QSlider(layoutWidget4);
+        sl_led7 = new QSlider(widget1);
         sl_led7->setObjectName(QStringLiteral("sl_led7"));
         sl_led7->setMaximum(4065);
         sl_led7->setPageStep(100);
@@ -542,7 +506,7 @@ public:
 
         verticalLayout_9->addWidget(sl_led7);
 
-        sl_led8 = new QSlider(layoutWidget4);
+        sl_led8 = new QSlider(widget1);
         sl_led8->setObjectName(QStringLiteral("sl_led8"));
         sl_led8->setMaximum(4065);
         sl_led8->setPageStep(100);
@@ -556,23 +520,18 @@ public:
 
         verticalLayout_10->addLayout(horizontalLayout_10);
 
-        tabWidget->addTab(tab_2, QString());
-        tab_3 = new QWidget();
-        tab_3->setObjectName(QStringLiteral("tab_3"));
-        layoutWidget5 = new QWidget(tab_3);
-        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(10, 10, 161, 84));
-        verticalLayout_11 = new QVBoxLayout(layoutWidget5);
+
+        verticalLayout_22->addLayout(verticalLayout_10);
+
+        verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setSpacing(6);
-        verticalLayout_11->setContentsMargins(11, 11, 11, 11);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
-        verticalLayout_11->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(layoutWidget5);
+        label_8 = new QLabel(widget1);
         label_8->setObjectName(QStringLiteral("label_8"));
 
         verticalLayout_11->addWidget(label_8);
 
-        poly_all = new QSlider(layoutWidget5);
+        poly_all = new QSlider(widget1);
         poly_all->setObjectName(QStringLiteral("poly_all"));
         poly_all->setMaximum(255);
         poly_all->setSingleStep(5);
@@ -581,12 +540,12 @@ public:
 
         verticalLayout_11->addWidget(poly_all);
 
-        label_9 = new QLabel(layoutWidget5);
+        label_9 = new QLabel(widget1);
         label_9->setObjectName(QStringLiteral("label_9"));
 
         verticalLayout_11->addWidget(label_9);
 
-        nonpoly_all = new QSlider(layoutWidget5);
+        nonpoly_all = new QSlider(widget1);
         nonpoly_all->setObjectName(QStringLiteral("nonpoly_all"));
         nonpoly_all->setMaximum(255);
         nonpoly_all->setSingleStep(5);
@@ -595,11 +554,44 @@ public:
 
         verticalLayout_11->addWidget(nonpoly_all);
 
+
+        verticalLayout_22->addLayout(verticalLayout_11);
+
+        tabWidget->addTab(tab_2, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        cb_led1_3 = new QCheckBox(tab_3);
+        cb_led1_3->setObjectName(QStringLiteral("cb_led1_3"));
+        cb_led1_3->setGeometry(QRect(10, 70, 50, 17));
+        cb_led3_3 = new QCheckBox(tab_3);
+        cb_led3_3->setObjectName(QStringLiteral("cb_led3_3"));
+        cb_led3_3->setGeometry(QRect(80, 10, 50, 17));
+        cb_led4_3 = new QCheckBox(tab_3);
+        cb_led4_3->setObjectName(QStringLiteral("cb_led4_3"));
+        cb_led4_3->setGeometry(QRect(120, 40, 50, 17));
+        cb_led2_3 = new QCheckBox(tab_3);
+        cb_led2_3->setObjectName(QStringLiteral("cb_led2_3"));
+        cb_led2_3->setGeometry(QRect(40, 40, 50, 17));
+        cb_led5_3 = new QCheckBox(tab_3);
+        cb_led5_3->setObjectName(QStringLiteral("cb_led5_3"));
+        cb_led5_3->setGeometry(QRect(150, 70, 50, 17));
+        cb_led6_3 = new QCheckBox(tab_3);
+        cb_led6_3->setObjectName(QStringLiteral("cb_led6_3"));
+        cb_led6_3->setGeometry(QRect(120, 100, 50, 17));
+        cb_led7_3 = new QCheckBox(tab_3);
+        cb_led7_3->setObjectName(QStringLiteral("cb_led7_3"));
+        cb_led7_3->setGeometry(QRect(80, 130, 50, 17));
+        cb_led8_3 = new QCheckBox(tab_3);
+        cb_led8_3->setObjectName(QStringLiteral("cb_led8_3"));
+        cb_led8_3->setGeometry(QRect(40, 100, 50, 17));
         tabWidget->addTab(tab_3, QString());
+
+        horizontalLayout_13->addWidget(tabWidget);
+
         QtTerm_v2Class->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtTerm_v2Class);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 460, 21));
+        menuBar->setGeometry(QRect(0, 0, 500, 21));
         menuMain = new QMenu(menuBar);
         menuMain->setObjectName(QStringLiteral("menuMain"));
         QtTerm_v2Class->setMenuBar(menuBar);
@@ -631,14 +623,11 @@ public:
     {
         QtTerm_v2Class->setWindowTitle(QApplication::translate("QtTerm_v2Class", "QtTerm_v2", 0));
         actionQuit->setText(QApplication::translate("QtTerm_v2Class", "Quit", 0));
-        statusLabel->setText(QApplication::translate("QtTerm_v2Class", "TextLabel", 0));
         label->setText(QApplication::translate("QtTerm_v2Class", "Received", 0));
         clearOutputButton->setText(QApplication::translate("QtTerm_v2Class", "CLEAR", 0));
         label_2->setText(QApplication::translate("QtTerm_v2Class", "Transmit", 0));
         clearInputButton->setText(QApplication::translate("QtTerm_v2Class", "CLEAR", 0));
-        ledSlider->setText(QString());
-        label_6->setText(QApplication::translate("QtTerm_v2Class", "Brightness", 0));
-        label_7->setText(QApplication::translate("QtTerm_v2Class", "LED", 0));
+        statusLabel->setText(QApplication::translate("QtTerm_v2Class", "TextLabel", 0));
         label_3->setText(QApplication::translate("QtTerm_v2Class", "Port", 0));
         ReScanButton->setText(QApplication::translate("QtTerm_v2Class", "ReScan", 0));
         label_4->setText(QApplication::translate("QtTerm_v2Class", "Baud Rate", 0));
@@ -662,7 +651,7 @@ public:
         disconnectButton->setText(QApplication::translate("QtTerm_v2Class", "Discnonnect", 0));
         sendButton->setText(QApplication::translate("QtTerm_v2Class", "Send", 0));
         resetButton->setText(QApplication::translate("QtTerm_v2Class", "Reset", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("QtTerm_v2Class", "Tab 1", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("QtTerm_v2Class", "Settings", 0));
         cb_led1->setText(QApplication::translate("QtTerm_v2Class", "LED 1", 0));
         cb_led2->setText(QApplication::translate("QtTerm_v2Class", "LED 2", 0));
         cb_led3->setText(QApplication::translate("QtTerm_v2Class", "LED 3", 0));
@@ -671,10 +660,18 @@ public:
         cb_led6->setText(QApplication::translate("QtTerm_v2Class", "LED 6", 0));
         cb_led7->setText(QApplication::translate("QtTerm_v2Class", "LED 7", 0));
         cb_led8->setText(QApplication::translate("QtTerm_v2Class", "LED 8", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("QtTerm_v2Class", "Tab 2", 0));
         label_8->setText(QApplication::translate("QtTerm_v2Class", "Polarisation", 0));
         label_9->setText(QApplication::translate("QtTerm_v2Class", "without Polarisation", 0));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("QtTerm_v2Class", "Tab 3", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("QtTerm_v2Class", "Selection", 0));
+        cb_led1_3->setText(QApplication::translate("QtTerm_v2Class", "LED 1", 0));
+        cb_led3_3->setText(QApplication::translate("QtTerm_v2Class", "LED 3", 0));
+        cb_led4_3->setText(QApplication::translate("QtTerm_v2Class", "LED 4", 0));
+        cb_led2_3->setText(QApplication::translate("QtTerm_v2Class", "LED 2", 0));
+        cb_led5_3->setText(QApplication::translate("QtTerm_v2Class", "LED 5", 0));
+        cb_led6_3->setText(QApplication::translate("QtTerm_v2Class", "LED 6", 0));
+        cb_led7_3->setText(QApplication::translate("QtTerm_v2Class", "LED 7", 0));
+        cb_led8_3->setText(QApplication::translate("QtTerm_v2Class", "LED 8", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("QtTerm_v2Class", "Halo", 0));
         menuMain->setTitle(QApplication::translate("QtTerm_v2Class", "Main", 0));
     } // retranslateUi
 

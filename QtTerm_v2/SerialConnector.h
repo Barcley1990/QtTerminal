@@ -59,8 +59,6 @@ private slots :
 
 	void Reset();
 	void ReadFromSerial();
-	void WriteToSlider(QString);
-	void SendSlider(int);
 
 private:
 	bool m_CR;
