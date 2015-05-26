@@ -60,6 +60,16 @@ private slots :
 	void Reset();
 	void ReadFromSerial();
 
+	void GetDataFromLine_1();
+	void GetDataFromLine_2();
+	void GetDataFromLine_3();
+	void GetDataFromLine_4();
+	void GetDataFromLine_5();
+	void GetDataFromLine_6();
+	void GetDataFromLine_7();
+	void GetDataFromLine_8();
+
+
 private:
 	bool m_CR;
 	bool m_LF;

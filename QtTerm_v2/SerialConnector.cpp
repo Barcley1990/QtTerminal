@@ -23,7 +23,7 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	m_slider7_value = "0000";
 	m_slider8_value = "0000";
 
-
+	// Settings Tag
 	connect(ui.ReScanButton, SIGNAL(clicked()), this, SLOT(scanPortNames()));		// Scan Portnames (scan Button)
 	connect(ui.portName, SIGNAL(activated(int)), this, SLOT(choosePort(int)));		// choose Port (dropdown)
 	connect(ui.baudBox, SIGNAL(activated(int)), this, SLOT(chooseBaud(int)));		// choose Baud (dropdown)
@@ -38,6 +38,7 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));		// CR Checkbox
 	connect(ui.checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));	// CR Checkbox
 	
+	// Slider Tab
 	connect(ui.cb_led1, SIGNAL(stateChanged(int)), this, SLOT(LED1_Checkbox(int)));
 	connect(ui.cb_led2, SIGNAL(stateChanged(int)), this, SLOT(LED2_Checkbox(int)));
 	connect(ui.cb_led3, SIGNAL(stateChanged(int)), this, SLOT(LED3_Checkbox(int)));
@@ -60,6 +61,15 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.poly_all, SIGNAL(valueChanged(int)), this, SLOT(poly_Slider(int)));
 	connect(ui.nonpoly_all, SIGNAL(valueChanged(int)), this, SLOT(non_poly_Slider(int)));
 
+	// Halo Tab
+	connect(ui.line_LED_1, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_1()));
+	connect(ui.line_LED_2, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_2()));
+	connect(ui.line_LED_3, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_3()));
+	connect(ui.line_LED_4, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_4()));
+	connect(ui.line_LED_5, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_5()));
+	connect(ui.line_LED_6, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_6()));
+	connect(ui.line_LED_7, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_7()));
+	connect(ui.line_LED_8, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_8()));
 }
 
 SerialConnector::~SerialConnector()
@@ -77,7 +87,14 @@ void SerialConnector::scanPortNames()
 {
 	QStringList stringlist;
 	QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
-
+	// remove old items
+	qDebug() << "port Items:" << ui.portName->count();
+	for (int i=ui.portName->count(); i >= 0; i--)
+	{
+		qDebug() << "item removed: " << "i =" << i;
+		ui.portName->removeItem(i);
+	}
+	qDebug() << "port Items:" << ui.portName->count();
 	foreach(QSerialPortInfo item, ports)
 	{
 		stringlist.append(item.portName());
@@ -302,7 +319,6 @@ void SerialConnector::LED1_Slider(int arg)
 		m_slider1_value.insert(0, QString("0"));
 	}
 	QString newData = led_str.append("01").append(value_str).append(m_slider1_value);
-	
 	if (m_led1)
 	{
 		if (m_serial && !m_serial->isOpen())
@@ -311,7 +327,6 @@ void SerialConnector::LED1_Slider(int arg)
 	}
 	else
 		return;
-			
 }
 void SerialConnector::LED2_Slider(int arg)
 {
@@ -508,6 +523,239 @@ void SerialConnector::disconnect()
 	// reset connect button's text to Connect
 	ui.connectButton->setText("Connect");
 	ui.statusLabel->setText("Disconnected");
+}
+
+void SerialConnector::GetDataFromLine_1()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line1 = ui.line_LED_1->displayText();
+	int value = Line1.toInt();
+	while (Line1.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line1.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line1 << " -> " << Line1;
+	if (value > 0)
+	{
+		ui.but_LED_1->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_1->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("01").append(value_str).append(Line1);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_2()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line2 = ui.line_LED_2->displayText();
+	int value = Line2.toInt();
+	while (Line2.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line2.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line2 << " -> " << Line2;
+	if (value > 0)
+	{
+		ui.but_LED_2->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_2->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("02").append(value_str).append(Line2);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_3()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line3 = ui.line_LED_3->displayText();
+	int value = Line3.toInt();
+	while (Line3.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line3.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line3 << " -> " << Line3;
+	if (value > 0)
+	{
+		ui.but_LED_3->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_3->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("03").append(value_str).append(Line3);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_4()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line4 = ui.line_LED_4->displayText();
+	int value = Line4.toInt();
+	while (Line4.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line4.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line4 << " -> " << Line4;
+	if (value > 0)
+	{
+		ui.but_LED_4->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_4->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("04").append(value_str).append(Line4);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_5()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line5 = ui.line_LED_5->displayText();
+	int value = Line5.toInt();
+	while (Line5.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line5.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line5 << " -> " << Line5;
+	if (value > 0)
+	{
+		ui.but_LED_5->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_5->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("05").append(value_str).append(Line5);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_6()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line6 = ui.line_LED_6->displayText();
+	int value = Line6.toInt();
+	while (Line6.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line6.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line6 << " -> " << Line6;
+	if (value > 0)
+	{
+		ui.but_LED_6->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_6->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("06").append(value_str).append(Line6);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_7()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line7 = ui.line_LED_7->displayText();
+	int value = Line7.toInt();
+	while (Line7.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line7.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line7 << " -> " << Line7;
+	if (value > 0)
+	{
+		ui.but_LED_7->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_7->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("07").append(value_str).append(Line7);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
+}
+void SerialConnector::GetDataFromLine_8()
+{
+	QString led_str = "LED";
+	QString value_str = "VALUE";
+	if (m_serial && !m_serial->isOpen())
+		return;
+	QString Line8 = ui.line_LED_8->displayText();
+	int value = Line8.toInt();
+	while (Line8.length() < 4)
+	{
+		qDebug() << "zu klein" << endl;
+		Line8.insert(0, QString("0"));
+	}
+	qDebug() << "String to Int " << Line8 << " -> " << Line8;
+	if (value > 0)
+	{
+		ui.but_LED_8->setChecked(true);
+		qDebug() << "butten_set_true" << endl;
+	}
+	else
+	{
+		ui.but_LED_8->setChecked(false);
+		qDebug() << "butten_set_false" << endl;
+	}
+	QString newData = led_str.append("08").append(value_str).append(Line8);
+	if (m_serial && !m_serial->isOpen())
+		return;
+	WriteToSerial(newData);
 }
 
 
