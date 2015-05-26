@@ -70,6 +70,16 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.line_LED_6, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_6()));
 	connect(ui.line_LED_7, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_7()));
 	connect(ui.line_LED_8, SIGNAL(returnPressed()), this, SLOT(GetDataFromLine_8()));
+
+	connect(ui.but_LED_1, SIGNAL(clicked()), this, SLOT(GetDataFromLine_1()));
+	connect(ui.but_LED_2, SIGNAL(clicked()), this, SLOT(GetDataFromLine_2()));
+	connect(ui.but_LED_3, SIGNAL(clicked()), this, SLOT(GetDataFromLine_3()));
+	connect(ui.but_LED_4, SIGNAL(clicked()), this, SLOT(GetDataFromLine_4()));
+	connect(ui.but_LED_5, SIGNAL(clicked()), this, SLOT(GetDataFromLine_5()));
+	connect(ui.but_LED_6, SIGNAL(clicked()), this, SLOT(GetDataFromLine_6()));
+	connect(ui.but_LED_7, SIGNAL(clicked()), this, SLOT(GetDataFromLine_7()));
+	connect(ui.but_LED_8, SIGNAL(clicked()), this, SLOT(GetDataFromLine_8()));
+
 }
 
 SerialConnector::~SerialConnector()
@@ -149,6 +159,7 @@ void SerialConnector::LED1_Checkbox(int arg)
 	int led1 = arg;
 	if (led1 == 2) // if checked
 	{
+		ui.but_LED_1->setChecked(true);
 		m_led1 = true;
 		QString newData = led_str.append("01").append(value_str).append(m_slider1_value);
 		if (m_serial && !m_serial->isOpen())
@@ -157,6 +168,7 @@ void SerialConnector::LED1_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_1->setChecked(false);
 		m_led1 = false;
 		WriteToSerial("LED01VALUE0000");
 	}
@@ -169,6 +181,7 @@ void SerialConnector::LED2_Checkbox(int arg)
 	int led2 = arg;
 	if (led2 == 2) // if checked
 	{
+		ui.but_LED_2->setChecked(true);
 		m_led2 = true;
 		
 		QString newData = led_str.append("02").append(value_str).append(m_slider2_value);
@@ -178,6 +191,7 @@ void SerialConnector::LED2_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_2->setChecked(false);
 		m_led2 = false;
 		WriteToSerial("LED02VALUE0000");
 	}
@@ -189,6 +203,7 @@ void SerialConnector::LED3_Checkbox(int arg)
 	int led3 = arg;
 	if (led3 == 2) // if checked
 	{
+		ui.but_LED_3->setChecked(true);
 		m_led3 = true;
 
 		QString newData = led_str.append("03").append(value_str).append(m_slider3_value);
@@ -198,6 +213,7 @@ void SerialConnector::LED3_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_3->setChecked(false);
 		m_led3 = false;
 		WriteToSerial("LED03VALUE0000");
 	}
@@ -209,6 +225,7 @@ void SerialConnector::LED4_Checkbox(int arg)
 	int led4 = arg;
 	if (led4 == 2) // if checked
 	{
+		ui.but_LED_4->setChecked(true);
 		m_led4 = true;
 
 		QString newData = led_str.append("04").append(value_str).append(m_slider4_value);
@@ -218,6 +235,7 @@ void SerialConnector::LED4_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_4->setChecked(false);
 		m_led4 = false;
 		WriteToSerial("LED04VALUE0000");
 	}
@@ -229,6 +247,7 @@ void SerialConnector::LED5_Checkbox(int arg)
 	int led5 = arg;
 	if (led5 == 2) // if checked
 	{
+		ui.but_LED_5->setChecked(true);
 		m_led5 = true;
 
 		QString newData = led_str.append("05").append(value_str).append(m_slider5_value);
@@ -238,6 +257,7 @@ void SerialConnector::LED5_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_5->setChecked(false);
 		m_led5 = false;
 		WriteToSerial("LED05VALUE0000");
 	}
@@ -249,6 +269,7 @@ void SerialConnector::LED6_Checkbox(int arg)
 	int led6 = arg;
 	if (led6 == 2) // if checked
 	{
+		ui.but_LED_6->setChecked(true);
 		m_led6 = true;
 
 		QString newData = led_str.append("06").append(value_str).append(m_slider6_value);
@@ -258,6 +279,7 @@ void SerialConnector::LED6_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_6->setChecked(false);
 		m_led6 = false;
 		WriteToSerial("LED06VALUE0000");
 	}
@@ -269,6 +291,7 @@ void SerialConnector::LED7_Checkbox(int arg)
 	int led7 = arg;
 	if (led7 == 2) // if checked
 	{
+		ui.but_LED_7->setChecked(true);
 		m_led7 = true;
 
 		QString newData = led_str.append("07").append(value_str).append(m_slider7_value);
@@ -278,6 +301,7 @@ void SerialConnector::LED7_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_7->setChecked(false);
 		m_led7 = false;
 		WriteToSerial("LED07VALUE0000");
 	}
@@ -289,6 +313,7 @@ void SerialConnector::LED8_Checkbox(int arg)
 	int led8 = arg;
 	if (led8 == 2) // if checked
 	{
+		ui.but_LED_8->setChecked(true);
 		m_led8 = true;
 
 		QString newData = led_str.append("08").append(value_str).append(m_slider8_value);
@@ -298,6 +323,7 @@ void SerialConnector::LED8_Checkbox(int arg)
 	}
 	else
 	{
+		ui.but_LED_8->setChecked(false);
 		m_led8 = false;
 		WriteToSerial("LED08VALUE0000");
 	}

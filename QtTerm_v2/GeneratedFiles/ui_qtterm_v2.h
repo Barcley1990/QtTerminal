@@ -505,7 +505,7 @@ public:
         pic_Ringlicht->setGeometry(QRect(0, 60, 211, 201));
         pic_Ringlicht->setInputMethodHints(Qt::ImhNone);
         pic_Ringlicht->setFrameShadow(QFrame::Plain);
-        pic_Ringlicht->setPixmap(QPixmap(QString::fromUtf8("../../../../../Pictures/ring.png")));
+        pic_Ringlicht->setPixmap(QPixmap(QString::fromUtf8("../ring.png")));
         pic_Ringlicht->setScaledContents(true);
         but_LED_1 = new QPushButton(tab_3);
         but_LED_1->setObjectName(QStringLiteral("but_LED_1"));
@@ -519,8 +519,8 @@ public:
         but_LED_1->setMinimumSize(QSize(16, 16));
         but_LED_1->setMaximumSize(QSize(16, 16));
         QIcon icon;
-        icon.addFile(QStringLiteral("../../../../../Pictures/off.png"), QSize(), QIcon::Normal, QIcon::Off);
-        icon.addFile(QStringLiteral("../../../../../Pictures/on.png"), QSize(), QIcon::Normal, QIcon::On);
+        icon.addFile(QStringLiteral("../off.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("../on.png"), QSize(), QIcon::Normal, QIcon::On);
         but_LED_1->setIcon(icon);
         but_LED_1->setCheckable(true);
         but_LED_1->setAutoRepeat(false);

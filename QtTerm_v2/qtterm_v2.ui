@@ -566,7 +566,7 @@ QLineEdit{
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../../../Pictures/ring.png</pixmap>
+       <pixmap>../ring.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -607,8 +607,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -655,8 +655,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -694,8 +694,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -733,8 +733,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -772,8 +772,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -811,8 +811,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -850,8 +850,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -889,8 +889,8 @@ QLineEdit{
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../Pictures/off.png</normaloff>
-        <normalon>../../../../../Pictures/on.png</normalon>../../../../../Pictures/off.png</iconset>
+        <normaloff>../off.png</normaloff>
+        <normalon>../on.png</normalon>../off.png</iconset>
       </property>
       <property name="checkable">
        <bool>true</bool>
