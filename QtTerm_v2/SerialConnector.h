@@ -76,6 +76,7 @@ private:
 	bool m_CR;
 	bool m_LF;
 	bool m_CRLF;
+	int m_DTR;
 
 	bool m_led1;
 	bool m_led2;

@@ -120,6 +120,10 @@ void SerialConnector::configure()
 		m_serial->setStopBits(QSerialPort::OneStop);
 		m_serial->setFlowControl(QSerialPort::NoFlowControl);
 		ui.connectButton->setText("Reconnect");
+		if (m_DTR == 2)
+			m_serial->setDataTerminalReady(true);
+		else
+			m_serial->setDataTerminalReady(false);
 		ui.statusLabel->setText("Connection established");
 	}
 }
@@ -166,11 +170,11 @@ void SerialConnector::chooseBaud(int arg)
 
 void SerialConnector::DTR_Checkbox(int arg)
 {
-	int DTR = arg;
+	m_DTR = arg;
 	qDebug() << "DTR_Checkbox changed";
 	if (m_serial)
 	{
-		if (DTR == 2) // if checked
+		if (m_DTR == 2) // if checked
 			m_serial->setDataTerminalReady(true);
 		else
 			m_serial->setDataTerminalReady(false);
@@ -181,7 +185,6 @@ void SerialConnector::DTR_Checkbox(int arg)
 		return;
 	}
 }
-
 void SerialConnector::CR_Checkbox(int arg)
 {
 	int CR = arg;
