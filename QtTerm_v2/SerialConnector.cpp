@@ -168,10 +168,18 @@ void SerialConnector::DTR_Checkbox(int arg)
 {
 	int DTR = arg;
 	qDebug() << "DTR_Checkbox changed";
-	if (DTR == 2) // if checked
-		m_serial->setDataTerminalReady(true);
+	if (m_serial)
+	{
+		if (DTR == 2) // if checked
+			m_serial->setDataTerminalReady(true);
+		else
+			m_serial->setDataTerminalReady(false);
+	}
 	else
-		m_serial->setDataTerminalReady(false);	
+	{
+		qDebug() << "Serial is not open\r";
+		return;
+	}
 }
 
 void SerialConnector::CR_Checkbox(int arg)
@@ -865,7 +873,7 @@ void SerialConnector::WriteToSerial(QString data)
 			send += m_serial->write(qb);
 			qDebug() << "Retransmitted: " << send;
 		}
-		QThread::msleep(100);
+		//QThread::msleep(100);
 		qDebug() << "Data sended: " << qb << endl;
 	}
 	else
