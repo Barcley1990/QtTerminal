@@ -37,6 +37,7 @@ SerialConnector::SerialConnector(QWidget *parent) : QMainWindow(parent)
 	connect(ui.checkBoxCR, SIGNAL(stateChanged(int)), this, SLOT(CR_Checkbox(int)));		// CR Checkbox
 	connect(ui.checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));		// CR Checkbox
 	connect(ui.checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));	// CR Checkbox
+	connect(ui.checkBoxDTR, SIGNAL(stateChanged(int)), this, SLOT(DTR_Checkbox(int)));
 	
 	// Slider Tab
 	connect(ui.cb_led1, SIGNAL(stateChanged(int)), this, SLOT(LED1_Checkbox(int)));
@@ -93,6 +94,45 @@ SerialConnector::~SerialConnector()
 	m_serial = nullptr;
 }
 
+void SerialConnector::configure()
+{
+	if (m_serial->isOpen())
+		m_serial->close();
+
+	// fallback
+	if (m_port.isEmpty())
+	{
+		int idx = ui.portName->currentIndex();
+		if (idx == -1)
+			return;
+
+		m_port = ui.portName->itemText(idx);
+	}
+
+	// set new port
+	m_serial->setPortName(m_port);
+
+	if (m_serial->open(QIODevice::ReadWrite))
+	{
+		m_serial->setBaudRate(m_baudrate, QSerialPort::AllDirections);
+		m_serial->setDataBits(QSerialPort::Data8);
+		m_serial->setParity(QSerialPort::NoParity);
+		m_serial->setStopBits(QSerialPort::OneStop);
+		m_serial->setFlowControl(QSerialPort::NoFlowControl);
+		ui.connectButton->setText("Reconnect");
+		ui.statusLabel->setText("Connection established");
+	}
+}
+void SerialConnector::disconnect()
+{
+	if (m_serial->isOpen())
+		m_serial->close();
+
+	// reset connect button's text to Connect
+	ui.connectButton->setText("Connect");
+	ui.statusLabel->setText("Disconnected");
+}
+
 void SerialConnector::scanPortNames()
 {
 	QStringList stringlist;
@@ -122,6 +162,16 @@ void SerialConnector::chooseBaud(int arg)
 	bool ok;
 	m_baudrate = m_baud.toInt(&ok, 10);
 	qDebug() << m_baudrate;
+}
+
+void SerialConnector::DTR_Checkbox(int arg)
+{
+	int DTR = arg;
+	qDebug() << "DTR_Checkbox changed";
+	if (DTR == 2) // if checked
+		m_serial->setDataTerminalReady(true);
+	else
+		m_serial->setDataTerminalReady(false);	
 }
 
 void SerialConnector::CR_Checkbox(int arg)
@@ -510,45 +560,6 @@ void SerialConnector::non_poly_Slider(int arg)
 	if (m_serial && !m_serial->isOpen())
 		return;
 	WriteToSerial(noPoly.append(m_non_poly_Slider_value));
-}
-
-void SerialConnector::configure()
-{
-	if (m_serial->isOpen())
-		m_serial->close();
-
-	// fallback
-	if (m_port.isEmpty())
-	{
-		int idx = ui.portName->currentIndex();
-		if (idx == -1)
-			return;
-
-		m_port = ui.portName->itemText(idx);
-	}
-
-	// set new port
-	m_serial->setPortName(m_port);
-
-	if (m_serial->open(QIODevice::ReadWrite))
-	{
-		m_serial->setBaudRate(m_baudrate, QSerialPort::AllDirections);
-		m_serial->setDataBits(QSerialPort::Data8);
-		m_serial->setParity(QSerialPort::NoParity);
-		m_serial->setStopBits(QSerialPort::OneStop);
-		m_serial->setFlowControl(QSerialPort::NoFlowControl);
-		ui.connectButton->setText("Reconnect");
-		ui.statusLabel->setText("Connection established");
-	}
-}
-void SerialConnector::disconnect()
-{
-	if (m_serial->isOpen())
-		m_serial->close();
-
-	// reset connect button's text to Connect
-	ui.connectButton->setText("Connect");
-	ui.statusLabel->setText("Disconnected");
 }
 
 void SerialConnector::GetDataFromLine_1()

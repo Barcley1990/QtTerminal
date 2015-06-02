@@ -36,6 +36,8 @@ private slots :
 	void CR_Checkbox(int);
 	void LF_Checkbox(int);
 	void CRLF_Checkbox(int);
+	void DTR_Checkbox(int);
+
 
 	void LED1_Checkbox(int);
 	void LED2_Checkbox(int);

@@ -40,8 +40,7 @@ public:
     QWidget *centralWidget;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QWidget *layoutWidget_2;
-    QVBoxLayout *verticalLayout_4;
+    QWidget *widget;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label_3;
@@ -50,16 +49,23 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_4;
     QComboBox *baudBox;
-    QVBoxLayout *verticalLayout;
-    QCheckBox *checkBoxCR;
-    QCheckBox *checkBoxLF;
-    QCheckBox *checkBoxCRLF;
+    QWidget *widget1;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *connectButton;
     QPushButton *disconnectButton;
     QPushButton *sendButton;
     QPushButton *resetButton;
+    QWidget *widget2;
+    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_6;
+    QCheckBox *checkBoxCR;
+    QCheckBox *checkBoxDTR;
+    QHBoxLayout *horizontalLayout_7;
+    QVBoxLayout *verticalLayout;
+    QCheckBox *checkBoxLF;
+    QCheckBox *checkBoxCRLF;
+    QSpacerItem *horizontalSpacer_3;
     QWidget *tab_2;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_22;
@@ -202,31 +208,28 @@ public:
         tabWidget->setMinimumSize(QSize(16, 16));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
-        layoutWidget_2 = new QWidget(tab);
-        layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(10, 0, 181, 301));
-        verticalLayout_4 = new QVBoxLayout(layoutWidget_2);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_3 = new QVBoxLayout();
+        widget = new QWidget(tab);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 10, 181, 51));
+        verticalLayout_3 = new QVBoxLayout(widget);
         verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_3 = new QLabel(layoutWidget_2);
+        label_3 = new QLabel(widget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         horizontalLayout->addWidget(label_3);
 
-        ReScanButton = new QPushButton(layoutWidget_2);
+        ReScanButton = new QPushButton(widget);
         ReScanButton->setObjectName(QStringLiteral("ReScanButton"));
 
         horizontalLayout->addWidget(ReScanButton);
 
-        portName = new QComboBox(layoutWidget_2);
+        portName = new QComboBox(widget);
         portName->setObjectName(QStringLiteral("portName"));
 
         horizontalLayout->addWidget(portName);
@@ -237,12 +240,12 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_4 = new QLabel(layoutWidget_2);
+        label_4 = new QLabel(widget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         horizontalLayout_3->addWidget(label_4);
 
-        baudBox = new QComboBox(layoutWidget_2);
+        baudBox = new QComboBox(widget);
         baudBox->setObjectName(QStringLiteral("baudBox"));
 
         horizontalLayout_3->addWidget(baudBox);
@@ -250,42 +253,23 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_3);
 
-
-        verticalLayout_4->addLayout(verticalLayout_3);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        checkBoxCR = new QCheckBox(layoutWidget_2);
-        checkBoxCR->setObjectName(QStringLiteral("checkBoxCR"));
-
-        verticalLayout->addWidget(checkBoxCR);
-
-        checkBoxLF = new QCheckBox(layoutWidget_2);
-        checkBoxLF->setObjectName(QStringLiteral("checkBoxLF"));
-
-        verticalLayout->addWidget(checkBoxLF);
-
-        checkBoxCRLF = new QCheckBox(layoutWidget_2);
-        checkBoxCRLF->setObjectName(QStringLiteral("checkBoxCRLF"));
-
-        verticalLayout->addWidget(checkBoxCRLF);
-
-
-        verticalLayout_4->addLayout(verticalLayout);
-
-        verticalLayout_2 = new QVBoxLayout();
+        widget1 = new QWidget(tab);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(10, 213, 181, 81));
+        verticalLayout_2 = new QVBoxLayout(widget1);
         verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        connectButton = new QPushButton(layoutWidget_2);
+        connectButton = new QPushButton(widget1);
         connectButton->setObjectName(QStringLiteral("connectButton"));
 
         horizontalLayout_2->addWidget(connectButton);
 
-        disconnectButton = new QPushButton(layoutWidget_2);
+        disconnectButton = new QPushButton(widget1);
         disconnectButton->setObjectName(QStringLiteral("disconnectButton"));
 
         horizontalLayout_2->addWidget(disconnectButton);
@@ -293,18 +277,65 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_2);
 
-        sendButton = new QPushButton(layoutWidget_2);
+        sendButton = new QPushButton(widget1);
         sendButton->setObjectName(QStringLiteral("sendButton"));
 
         verticalLayout_2->addWidget(sendButton);
 
-        resetButton = new QPushButton(layoutWidget_2);
+        resetButton = new QPushButton(widget1);
         resetButton->setObjectName(QStringLiteral("resetButton"));
 
         verticalLayout_2->addWidget(resetButton);
 
+        widget2 = new QWidget(tab);
+        widget2->setObjectName(QStringLiteral("widget2"));
+        widget2->setGeometry(QRect(12, 100, 181, 71));
+        verticalLayout_4 = new QVBoxLayout(widget2);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        checkBoxCR = new QCheckBox(widget2);
+        checkBoxCR->setObjectName(QStringLiteral("checkBoxCR"));
 
-        verticalLayout_4->addLayout(verticalLayout_2);
+        horizontalLayout_6->addWidget(checkBoxCR);
+
+        checkBoxDTR = new QCheckBox(widget2);
+        checkBoxDTR->setObjectName(QStringLiteral("checkBoxDTR"));
+
+        horizontalLayout_6->addWidget(checkBoxDTR);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_6);
+
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        checkBoxLF = new QCheckBox(widget2);
+        checkBoxLF->setObjectName(QStringLiteral("checkBoxLF"));
+
+        verticalLayout->addWidget(checkBoxLF);
+
+        checkBoxCRLF = new QCheckBox(widget2);
+        checkBoxCRLF->setObjectName(QStringLiteral("checkBoxCRLF"));
+
+        verticalLayout->addWidget(checkBoxCRLF);
+
+
+        horizontalLayout_7->addLayout(verticalLayout);
+
+        horizontalSpacer_3 = new QSpacerItem(98, 38, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_3);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_7);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -505,7 +536,7 @@ public:
         pic_Ringlicht->setGeometry(QRect(0, 60, 211, 201));
         pic_Ringlicht->setInputMethodHints(Qt::ImhNone);
         pic_Ringlicht->setFrameShadow(QFrame::Plain);
-        pic_Ringlicht->setPixmap(QPixmap(QString::fromUtf8("../ring.png")));
+        pic_Ringlicht->setPixmap(QPixmap(QString::fromUtf8("Resources/ring.png")));
         pic_Ringlicht->setScaledContents(true);
         but_LED_1 = new QPushButton(tab_3);
         but_LED_1->setObjectName(QStringLiteral("but_LED_1"));
@@ -519,8 +550,8 @@ public:
         but_LED_1->setMinimumSize(QSize(16, 16));
         but_LED_1->setMaximumSize(QSize(16, 16));
         QIcon icon;
-        icon.addFile(QStringLiteral("../off.png"), QSize(), QIcon::Normal, QIcon::Off);
-        icon.addFile(QStringLiteral("../on.png"), QSize(), QIcon::Normal, QIcon::On);
+        icon.addFile(QStringLiteral("Resources/off.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("Resources/on.png"), QSize(), QIcon::Normal, QIcon::On);
         but_LED_1->setIcon(icon);
         but_LED_1->setCheckable(true);
         but_LED_1->setAutoRepeat(false);
@@ -777,13 +808,14 @@ public:
          << QApplication::translate("QtTerm_v2Class", "57600", 0)
          << QApplication::translate("QtTerm_v2Class", "115200", 0)
         );
-        checkBoxCR->setText(QApplication::translate("QtTerm_v2Class", "CR", 0));
-        checkBoxLF->setText(QApplication::translate("QtTerm_v2Class", "LF", 0));
-        checkBoxCRLF->setText(QApplication::translate("QtTerm_v2Class", "CR + LF", 0));
         connectButton->setText(QApplication::translate("QtTerm_v2Class", "Connect", 0));
         disconnectButton->setText(QApplication::translate("QtTerm_v2Class", "Discnonnect", 0));
         sendButton->setText(QApplication::translate("QtTerm_v2Class", "Send", 0));
         resetButton->setText(QApplication::translate("QtTerm_v2Class", "Reset", 0));
+        checkBoxCR->setText(QApplication::translate("QtTerm_v2Class", "CR", 0));
+        checkBoxDTR->setText(QApplication::translate("QtTerm_v2Class", "DTR", 0));
+        checkBoxLF->setText(QApplication::translate("QtTerm_v2Class", "LF", 0));
+        checkBoxCRLF->setText(QApplication::translate("QtTerm_v2Class", "CR + LF", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("QtTerm_v2Class", "Settings", 0));
         cb_led1->setText(QApplication::translate("QtTerm_v2Class", "LED 1", 0));
         cb_led2->setText(QApplication::translate("QtTerm_v2Class", "LED 2", 0));
